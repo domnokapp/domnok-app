@@ -4,22 +4,11 @@ import {Html5Qrcode} from "html5-qrcode";
 
 export const QuickScanPage: FC = () => {
   const html5QrCode = new Html5Qrcode('reader');
-
-  html5QrCode.start(
-    cameraId,
-    {
-      fps: 10,
-      qrbox: { width: 250, height: 250 }
-    },
-    (decodedText, decodedResult) => {
-      alert(decodedText);
-    },
-    (errorMessage) => {
-      // Start failed, handle it.
-    })
-  .catch((err) => {
-    // Start failed, handle it.
-  });
+  const qrCodeSuccessCallback = (decodedText, decodedResult) => {
+      /* handle success */
+  };
+  const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+  html5QrCode.start({ facingMode: 'environment' }, config, qrCodeSuccessCallback);
 
   return (
     <div>
@@ -31,7 +20,7 @@ export const QuickScanPage: FC = () => {
       </div>
 
       <div>
-        <div id="reader" width="100%"></div>
+        <div id="reader"></div>
       </div>
 
     </div>
