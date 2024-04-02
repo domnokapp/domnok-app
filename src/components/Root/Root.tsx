@@ -1,10 +1,10 @@
-import { setDebug } from '@tma.js/sdk';
-import { DisplayGate, SDKProvider } from '@tma.js/sdk-react';
-import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import type { FC } from 'react';
-import { useEffect, useMemo } from 'react';
+import { setDebug } from "@tma.js/sdk";
+import { DisplayGate, SDKProvider } from "@tma.js/sdk-react";
+import { TonConnectUIProvider } from "@tonconnect/ui-react";
+import type { FC } from "react";
+import { useEffect, useMemo } from "react";
 
-import { App } from '../App';
+import { App } from "../App";
 
 const Err: FC<{ error: unknown }> = ({ error }) => {
   return (
@@ -12,9 +12,7 @@ const Err: FC<{ error: unknown }> = ({ error }) => {
       <p>An error occurred while initializing the SDK</p>
       <blockquote>
         <code>
-          {error instanceof Error
-            ? error.message
-            : JSON.stringify(error)}
+          {error instanceof Error ? error.message : JSON.stringify(error)}
         </code>
       </blockquote>
     </div>
@@ -22,14 +20,12 @@ const Err: FC<{ error: unknown }> = ({ error }) => {
 };
 
 const Loading: FC = () => {
-  return (
-    <div>Application is loading</div>
-  );
+  return <div>Application is loading</div>;
 };
 
 export const Root: FC = () => {
   const manifestUrl = useMemo(() => {
-    return new URL('tonconnect-manifest.json', window.location.href).toString();
+    return new URL("tonconnect-manifest.json", window.location.href).toString();
   }, []);
 
   // Enable debug mode to see all the methods sent and events received.
@@ -39,7 +35,9 @@ export const Root: FC = () => {
 
   return (
     <TonConnectUIProvider manifestUrl={manifestUrl}>
-      <SDKProvider options={{ acceptCustomStyles: true, cssVars: true, complete: true }}>
+      <SDKProvider
+        options={{ acceptCustomStyles: true, cssVars: true, complete: true }}
+      >
         <DisplayGate error={Err} loading={Loading} initial={Loading}>
           <App />
         </DisplayGate>
