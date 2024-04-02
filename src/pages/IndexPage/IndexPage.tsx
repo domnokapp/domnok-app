@@ -6,14 +6,10 @@ import { Link } from "../../components/Link";
 import { Page } from "../../components/Page";
 import { routes } from "../../navigation/routes.ts";
 import { useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button";
 
 export const IndexPage: FC = () => {
   return (
     <Page title="Home Page">
-      <div>
-        <Button variant="contained">Hello world</Button>;
-      </div>
       <p>
         This page is a home page in this boilerplate. You can use the links
         below to visit other pages with their own functionality.
