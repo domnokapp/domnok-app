@@ -6,13 +6,13 @@ import { Link } from "../../components/Link";
 import { Page } from "../../components/Page";
 import { routes } from "../../navigation/routes.ts";
 import { useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button";
+import { Button, TextField } from "@mui/material";
 
 export const IndexPage: FC = () => {
   const data = JSON.stringify({
     eventType: 'web_app_setup_closing_behavior',
     eventData: {
-      need_confirmation: true,
+      is_visible: true,
     },
   });
 
@@ -22,6 +22,9 @@ export const IndexPage: FC = () => {
     <Page title="Home Page">
       <div>
         <Button variant="contained">Getting Started</Button>
+      </div>
+      <div>
+        <TextField required id="outlined-basic" label="Full Name" variant="outlined" />
       </div>
       <p>
         This page is a home page in this boilerplate. You can use the links
