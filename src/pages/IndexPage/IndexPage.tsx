@@ -9,6 +9,15 @@ import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 export const IndexPage: FC = () => {
+  const data = JSON.stringify({
+    eventType: 'web_app_setup_closing_behavior',
+    eventData: {
+      need_confirmation: true,
+    },
+  });
+
+  window.parent.postMessage(data, 'https://web.telegram.org');
+
   return (
     <Page title="Home Page">
       <div>

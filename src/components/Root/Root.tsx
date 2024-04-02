@@ -1,4 +1,4 @@
-import { setDebug } from "@tma.js/sdk";
+import { setDebug, postEvent } from "@tma.js/sdk";
 import { DisplayGate, SDKProvider } from "@tma.js/sdk-react";
 import { TonConnectUIProvider } from "@tonconnect/ui-react";
 import type { FC } from "react";
