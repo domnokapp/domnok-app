@@ -28,14 +28,14 @@ export const Root: FC = () => {
     return new URL('tonconnect-manifest.json', window.location.href).toString();
   }, []);
 
-  // const miniApp = new MiniApp({
-  //   headerColor: 'bg_color',
-  //   backgroundColor: '#00ae13',
-  //   version: '6.4',
-  //   botInline: false,
-  //   postEvent,
-  // });
-
+  const miniApp = new MiniApp({
+    headerColor: 'bg_color',
+    backgroundColor: '#ffffff',
+    version: '6.4',
+    botInline: false,
+    postEvent,
+  });
+  miniApp.setBackgroundColor('#ffffff');
   // miniApp.requestPhoneAccess().then(() => {
   //   // done.
   // });
