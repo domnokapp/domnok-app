@@ -22,6 +22,8 @@
     "@tma.js/sdk": "^1.5.1",
     "@tma.js/sdk-react": "^2.0.1",
     "@tonconnect/ui-react": "^2.0.0",
+    "@vkruglikov/react-telegram-web-app": "^2.1.9",
+    "antd": "^5.16.0",
     "numeral": "^2.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

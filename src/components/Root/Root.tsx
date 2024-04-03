@@ -28,17 +28,17 @@ export const Root: FC = () => {
     return new URL('tonconnect-manifest.json', window.location.href).toString();
   }, []);
 
-  const miniApp = new MiniApp({
-    headerColor: 'bg_color',
-    backgroundColor: '#00ae13',
-    version: '6.4',
-    botInline: false,
-    postEvent,
-  });
+  // const miniApp = new MiniApp({
+  //   headerColor: 'bg_color',
+  //   backgroundColor: '#00ae13',
+  //   version: '6.4',
+  //   botInline: false,
+  //   postEvent,
+  // });
 
-  miniApp.requestPhoneAccess().then(() => {
-    // done.
-  });
+  // miniApp.requestPhoneAccess().then(() => {
+  //   // done.
+  // });
 
   // const { mainButton, viewport } = init();
   // mainButton.on('click', () => viewport.expand());
