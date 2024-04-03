@@ -46,10 +46,9 @@ export const ProductFormPage: React.FC = () => {
         <CssBaseline />
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: 1,
             display: 'flex',
             flexDirection: 'column',
-            alignItems: 'center',
           }}
         >
           {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
