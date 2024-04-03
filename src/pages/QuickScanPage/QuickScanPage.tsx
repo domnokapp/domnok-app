@@ -1,14 +1,15 @@
-import type { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { Alert } from '@mui/material';
-import {Html5Qrcode} from "html5-qrcode";
+// material-ui
+import { Grid } from '@mui/material';
+import { gridSpacing } from '../../store/constant';
 
 export const QuickScanPage: FC = () => {
-  const html5QrCode = new Html5Qrcode('reader');
-  const qrCodeSuccessCallback = (decodedText, decodedResult) => {
-      /* handle success */
-  };
-  const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-  html5QrCode.start({ facingMode: 'user' }, config, qrCodeSuccessCallback);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+      setLoading(false);
+  }, []);
 
   return (
     <div>
@@ -19,9 +20,15 @@ export const QuickScanPage: FC = () => {
         </Alert>
       </div>
 
-      <div>
-        <div id="reader"></div>
-      </div>
+      <Grid container spacing={gridSpacing}>
+        <Grid item xs={12}>
+          <Grid container spacing={gridSpacing}>
+            <Grid item lg={4} md={6} sm={6} xs={12}>
+              ddd
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
 
     </div>
   );
