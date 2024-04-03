@@ -1,4 +1,4 @@
-import { setDebug, init } from '@tma.js/sdk';
+import { setDebug, init, ClosingBehavior, postEvent, SettingsButton } from '@tma.js/sdk';
 import { DisplayGate, SDKProvider } from '@tma.js/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import type { FC } from 'react';
@@ -28,15 +28,20 @@ export const Root: FC = () => {
     return new URL('tonconnect-manifest.json', window.location.href).toString();
   }, []);
 
-  const { mainButton, viewport } = init();
-  mainButton.on('click', () => viewport.expand());
+  // const { mainButton, viewport } = init();
+  // mainButton.on('click', () => viewport.expand());
 
-  mainButton
-    .setBackgroundColor('#ff0000')
-    .setTextColor('#ffffff')
-    .setText('Expand')
-    .enable()
-    .show();
+  // mainButton
+  //   .setBackgroundColor('#ff0000')
+  //   .setTextColor('#ffffff')
+  //   .setText('Expand')
+  //   .enable()
+  //   .show();
+  const closingBehaviour = new ClosingBehavior(false, postEvent);
+  closingBehaviour.enableConfirmation();
+
+  const settingsButton = new SettingsButton(false, '6.3', postEvent);
+  settingsButton.hide();
 
   // Enable debug mode to see all the methods sent and events received.
   useEffect(() => {
