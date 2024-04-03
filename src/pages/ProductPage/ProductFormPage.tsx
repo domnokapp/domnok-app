@@ -1,4 +1,3 @@
-import { MiniApp } from '@tma.js/sdk';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -31,18 +30,6 @@ function Copyright(props: any) {
 const defaultTheme = createTheme();
 
 export const ProductFormPage: React.FC = () => {
-  const [phone, setPhone] = React.useState('');
-  const miniApp = new MiniApp({
-    headerColor: 'bg_color',
-    backgroundColor: '#ffffff',
-    version: '6.4',
-    botInline: false,
-    postEvent,
-  });
-
-  miniApp.requestContact().then(contact => {
-    setPhone(contact.contact.phoneNumber);
-  });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -65,11 +52,11 @@ export const ProductFormPage: React.FC = () => {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          {/* <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
             <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Sign up
+          </Avatar> */}
+          <Typography component="h6" variant="h5">
+            Product Form
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -82,7 +69,6 @@ export const ProductFormPage: React.FC = () => {
                   id="firstName"
                   label="First Name"
                   autoFocus
-                  value={phone}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
