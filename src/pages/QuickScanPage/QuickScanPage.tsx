@@ -8,7 +8,7 @@ export const QuickScanPage: FC = () => {
       /* handle success */
   };
   const config = { fps: 10, qrbox: { width: 250, height: 250 } };
-  html5QrCode.start({ facingMode: 'environment' }, config, qrCodeSuccessCallback);
+  html5QrCode.start({ facingMode: 'user' }, config, qrCodeSuccessCallback);
 
   return (
     <div>
