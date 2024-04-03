@@ -1,3 +1,4 @@
+import { MiniApp } from '@tma.js/sdk';
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -29,7 +30,20 @@ function Copyright(props: any) {
 // TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 
-export const ProductFormPage: FC = () => {
+export const ProductFormPage: React.FC = () => {
+  const [phone, setPhone] = React.useState('');
+  const miniApp = new MiniApp({
+    headerColor: 'bg_color',
+    backgroundColor: '#ffffff',
+    version: '6.4',
+    botInline: false,
+    postEvent,
+  });
+
+  miniApp.requestContact().then(contact => {
+    setPhone(contact.contact.phoneNumber);
+  });
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -68,6 +82,7 @@ export const ProductFormPage: FC = () => {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  value={phone}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
