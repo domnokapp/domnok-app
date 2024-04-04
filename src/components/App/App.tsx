@@ -27,7 +27,6 @@ import {
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { routes } from '../../navigation/routes.ts';
-import { red } from '@mui/material/colors';
 
 const Inner: FC = () => {
   return (
@@ -40,7 +39,7 @@ const Inner: FC = () => {
 
 const MainMenu: FC = () => {
   return (
-    <Grid container rowSpacing={1.5} columnSpacing={1.5}>
+    <Grid container rowSpacing={1.5} columnSpacing={2.75}>
       <Grid item xs={12} sx={{ mb: -2.25 }}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
@@ -49,11 +48,11 @@ const MainMenu: FC = () => {
             <CardHeader
             avatar={
               <img
-                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
-                src={``}
+                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465601.png`}
+                src={`https://cdn-icons-png.flaticon.com/512/465/465601.png`}
                 alt={`Good Job`}
-                width={`35px`}
-                height={`35px`}
+                width={`45px`}
+                height={`45px`}
                 loading="lazy"
               />
             }
@@ -74,10 +73,10 @@ const MainMenu: FC = () => {
             avatar={
               <img
                 srcSet={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
-                src={``}
+                src={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
                 alt={`Good Job`}
-                width={`35px`}
-                height={`35px`}
+                width={`45px`}
+                height={`45px`}
                 loading="lazy"
               />
             }
@@ -97,11 +96,11 @@ const MainMenu: FC = () => {
             <CardHeader
             avatar={
               <img
-                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
-                src={``}
+                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465606.png`}
+                src={`https://cdn-icons-png.flaticon.com/512/465/465606.png`}
                 alt={`Good Job`}
-                width={`35px`}
-                height={`35px`}
+                width={`45px`}
+                height={`45px`}
                 loading="lazy"
               />
             }
@@ -121,11 +120,11 @@ const MainMenu: FC = () => {
             <CardHeader
             avatar={
               <img
-                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
-                src={``}
+                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465583.png`}
+                src={`https://cdn-icons-png.flaticon.com/512/465/465583.png`}
                 alt={`Good Job`}
-                width={`35px`}
-                height={`35px`}
+                width={`45px`}
+                height={`45px`}
                 loading="lazy"
               />
             }
