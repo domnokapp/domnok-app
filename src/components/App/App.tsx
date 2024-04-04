@@ -28,7 +28,8 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { routes } from '../../navigation/routes.ts';
 
-import { ActivationCard, Box, Flex } from 'gestalt';
+import { ActivationCard, Box, Flex, Container } from 'gestalt';
+import 'gestalt/dist/gestalt.css';
 
 const Inner: FC = () => {
   return (
