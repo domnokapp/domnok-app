@@ -40,7 +40,7 @@ const Inner: FC = () => {
 
 const MainMenu: FC = () => {
   return (
-    <Grid container rowSpacing={4.5} columnSpacing={2.75}>
+    <Grid container rowSpacing={1.5} columnSpacing={1.5}>
       <Grid item xs={12} sx={{ mb: -2.25 }}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
