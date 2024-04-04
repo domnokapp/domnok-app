@@ -44,7 +44,7 @@ const MainMenu: FC = () => {
       <Grid item xs={12} sx={{ mb: -2.25 }}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
-      <Grid item xs={4} sm={3} md={2} lg={1}>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
         <Card>
             <CardHeader
             avatar={
@@ -60,21 +60,9 @@ const MainMenu: FC = () => {
             title="Shrimp and Chorizo Paella"
             subheader="September 14, 2016"
           />
-          <Stack>
-            <Typography variant="h6" color="textSecondary">
-              First Card
-            </Typography>
-            <Grid container alignItems="center">
-              <Grid item>
-                <Typography variant="h4" color="inherit">
-                  1111
-                </Typography>
-              </Grid>
-            </Grid>
-          </Stack>
         </Card>
       </Grid>
-      <Grid item xs={4} sm={3} md={2} lg={1}>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
@@ -90,7 +78,7 @@ const MainMenu: FC = () => {
           </Stack>
         </Card>
       </Grid>
-      <Grid item xs={4} sm={3} md={2} lg={1}>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
@@ -106,7 +94,7 @@ const MainMenu: FC = () => {
           </Stack>
         </Card>
       </Grid>
-      <Grid item xs={4} sm={3} md={2} lg={1}>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
