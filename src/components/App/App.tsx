@@ -13,6 +13,24 @@ import {
   Routes,
 } from 'react-router-dom';
 
+import {
+  Avatar,
+  AvatarGroup,
+  Box,
+  Button,
+  Card,
+  Grid,
+  List,
+  ListItemAvatar,
+  ListItemButton,
+  ListItemSecondaryAction,
+  ListItemText,
+  MenuItem,
+  Stack,
+  TextField,
+  Typography,
+} from '@mui/material';
+
 import { routes } from '../../navigation/routes.ts';
 
 const Inner: FC = () => {
@@ -21,6 +39,82 @@ const Inner: FC = () => {
       {routes.map((route) => <Route key={route.path} {...route} />)}
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
+  );
+};
+
+const MainMenu: FC = () => {
+  return (
+    <Grid container rowSpacing={4.5} columnSpacing={2.75}>
+      <Grid item xs={12} sx={{ mb: -2.25 }}>
+        <Typography variant="h5">Dashboard</Typography>
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Card>
+          <Stack>
+            <Typography variant="h6" color="textSecondary">
+              First Card
+            </Typography>
+            <Grid container alignItems="center">
+              <Grid item>
+                <Typography variant="h4" color="inherit">
+                  1111
+                </Typography>
+              </Grid>
+            </Grid>
+          </Stack>
+        </Card>
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Card>
+          <Stack>
+            <Typography variant="h6" color="textSecondary">
+              First Card
+            </Typography>
+            <Grid container alignItems="center">
+              <Grid item>
+                <Typography variant="h4" color="inherit">
+                  1111
+                </Typography>
+              </Grid>
+            </Grid>
+          </Stack>
+        </Card>
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Card>
+          <Stack>
+            <Typography variant="h6" color="textSecondary">
+              First Card
+            </Typography>
+            <Grid container alignItems="center">
+              <Grid item>
+                <Typography variant="h4" color="inherit">
+                  1111
+                </Typography>
+              </Grid>
+            </Grid>
+          </Stack>
+        </Card>
+      </Grid>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Card>
+          <Stack>
+            <Typography variant="h6" color="textSecondary">
+              First Card
+            </Typography>
+            <Grid container alignItems="center">
+              <Grid item>
+                <Typography variant="h4" color="inherit">
+                  1111
+                </Typography>
+              </Grid>
+            </Grid>
+          </Stack>
+        </Card>
+      </Grid>
+
+      <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />
+    </Grid>
   );
 };
 
@@ -33,7 +127,9 @@ export const App: FC = () => {
 
   return (
     <Router location={location} navigator={navigator}>
-      <Inner />
+      <>
+        <MainMenu />
+      </>
     </Router>
   );
 };
