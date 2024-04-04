@@ -24,7 +24,7 @@ import {
   Typography,
 } from '@mui/material';
 
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { routes } from '../../navigation/routes.ts';
 import { red } from '@mui/material/colors';
@@ -54,7 +54,7 @@ const MainMenu: FC = () => {
             }
             action={
               <IconButton aria-label="settings">
-                <MoreVertIcon />
+                <KeyboardArrowRightIcon />
               </IconButton>
             }
             title="Shrimp and Chorizo Paella"
