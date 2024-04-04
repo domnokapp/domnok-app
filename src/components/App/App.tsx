@@ -39,6 +39,14 @@ const Inner: FC = () => {
 
 const MainMenu: FC = () => {
   return (
+    <>
+    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      {Array.from(Array(6)).map((_, index) => (
+        <Grid item xs={2} sm={4} md={4} key={index}>
+          <Grid item>xs=2</Grid>
+        </Grid>
+      ))}
+    </Grid>
     <Grid container rowSpacing={1.5} columnSpacing={2.75}>
       <Grid item xs={12} marginBottom={0.5}>
         <Typography variant="h5">Dashboard</Typography>
@@ -141,6 +149,7 @@ const MainMenu: FC = () => {
 
       <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />
     </Grid>
+    </>
   );
 };
 
