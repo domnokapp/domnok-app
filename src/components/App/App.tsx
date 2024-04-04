@@ -48,7 +48,7 @@ const MainMenu: FC = () => {
       <Grid item xs={12} sx={{ mb: -2.25 }}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={3} sm={2} md={1} lg={1}>
         <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
@@ -64,7 +64,7 @@ const MainMenu: FC = () => {
           </Stack>
         </Card>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={3} sm={2} md={1} lg={1}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
@@ -80,7 +80,7 @@ const MainMenu: FC = () => {
           </Stack>
         </Card>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={3} sm={2} md={1} lg={1}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
@@ -96,7 +96,7 @@ const MainMenu: FC = () => {
           </Stack>
         </Card>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={3} sm={2} md={1} lg={1}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
