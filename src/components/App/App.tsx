@@ -1,3 +1,5 @@
+import styles from './FormSection.module.css';
+
 import {
   createNavigator,
   useBackButtonIntegration,
@@ -14,29 +16,17 @@ import {
   Routes,
 } from 'react-router-dom';
 
-import {
-  Card,
-  CardHeader,
-  Grid,
-  IconButton,
-  Stack,
-  Typography,
-} from '@mui/material';
-
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-
 import { routes } from '../../navigation/routes.ts';
 
 import '@xelene/tgui/dist/styles.css';
 import { ReactNode, ComponentType } from 'react';
-import { Cell, IconContainer, Section } from '@xelene/tgui';
+import { Cell, Section, ColorInput, IconContainer, Input, Slider } from '@xelene/tgui';
 
 import { Icon28Chat } from '@xelene/tgui/dist/icons/28/chat';
 import { Icon28Devices } from '@xelene/tgui/dist/icons/28/devices';
 import { Icon28Stats } from '@xelene/tgui/dist/icons/28/stats';
 import { ProductFormPage } from '../../pages/ProductPage/ProductFormPage.tsx';
-
-const TON_SITE_LINK = 'https://ton.space/';
+import { Icon24SunLow } from '@xelene/tgui/dist/icons/24/sun_low';
 
 const Inner: FC = () => {
   return (
@@ -100,6 +90,22 @@ const MainMenu: FC = () => {
   );
 };
 
+const TestForm: FC = () => (
+  <Section header="Form section">
+    <Input header="Android title" placeholder="Something here" />
+    <ColorInput />
+    <Slider
+      step={25}
+      before={(
+        <IconContainer className={styles.sliderIcon}>
+          <Icon24SunLow />
+        </IconContainer>
+      )}
+      after={<IconContainer><Icon24SunLow /></IconContainer>}
+    />
+  </Section>
+);
+
 export const App: FC = () => {
   const tmaNavigator = useMemo(createNavigator, []);
   const [location, navigator] = useNavigatorIntegration(tmaNavigator);
@@ -121,6 +127,7 @@ export const App: FC = () => {
     <Router location={location} navigator={navigator}>
       <>
         <MainMenu />
+        <TestForm />
       </>
     </Router>
   );
