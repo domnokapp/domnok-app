@@ -87,14 +87,12 @@ const MainMenu: FC = () => {
     
     <Section header="Catalog" footer="">
       {catalogs.map((catalog) => (
-        <Route key={catalog.route.path} {...catalog.route}>
           <Cell
             key={catalog.id}
             before={<IconContainer>{catalog.icon}</IconContainer>}
           >
             {catalog.text}
           </Cell>
-        </Route>
       ))}
     </Section>
 
