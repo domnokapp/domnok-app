@@ -20,7 +20,7 @@ import { routes } from '../../navigation/routes.ts';
 
 import '@xelene/tgui/dist/styles.css';
 import { ReactNode, ComponentType } from 'react';
-import { Cell, Section, ColorInput, IconContainer, Input, Slider } from '@xelene/tgui';
+import { Cell, Section, ColorInput, IconContainer, Input, Slider, FileInput } from '@xelene/tgui';
 
 import { Icon28Chat } from '@xelene/tgui/dist/icons/28/chat';
 import { Icon28Devices } from '@xelene/tgui/dist/icons/28/devices';
@@ -91,10 +91,12 @@ const MainMenu: FC = () => {
 };
 
 const TestForm: FC = () => (
-  <Section header="Form section">
-    <Input header="Android title" placeholder="Something here" />
-    <ColorInput />
+  <Section header="Form Section">
+    <Input header="Name" placeholder="Your product's name" />
+    <ColorInput name="Color" />
+    <FileInput name="Photo" placeholder="Upload your product's photo" />
     <Slider
+      title="Rating"
       step={25}
       before={(
         <IconContainer className={styles.sliderIcon}>
