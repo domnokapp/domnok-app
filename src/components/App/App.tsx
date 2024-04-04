@@ -48,12 +48,9 @@ const MainMenu: FC = () => {
         <Card>
             <CardHeader
             avatar={
-              // <Avatar sx={{ bgcolor: red }} aria-label="recipe">
-              //   R
-              // </Avatar>
               <img
-                srcSet={`https://pub-331de4128b9f4ebbae98544884357a16.r2.dev/clipboard-check-svgrepo-com.svg?w=35&h=35&fit=crop&auto=format&dpr=2 2x`}
-                src={`https://pub-331de4128b9f4ebbae98544884357a16.r2.dev/clipboard-check-svgrepo-com.svg?w=35&h=35&fit=crop&auto=format`}
+                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
+                src={``}
                 alt={`Good Job`}
                 width={`35px`}
                 height={`35px`}
@@ -65,57 +62,81 @@ const MainMenu: FC = () => {
                 <KeyboardArrowRightIcon />
               </IconButton>
             }
-            title="Shrimp and Chorizo Paella"
-            subheader="September 14, 2016"
+            title="Managing Product, Category, Unit"
+            subheader="setting up your products"
           />
         </Card>
       </Grid>
+      
       <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card>
-          <Stack>
-            <Typography variant="h6" color="textSecondary">
-              First Card
-            </Typography>
-            <Grid container alignItems="center">
-              <Grid item>
-                <Typography variant="h4" color="inherit">
-                  1111
-                </Typography>
-              </Grid>
-            </Grid>
-          </Stack>
+        <Card>
+            <CardHeader
+            avatar={
+              <img
+                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
+                src={``}
+                alt={`Good Job`}
+                width={`35px`}
+                height={`35px`}
+                loading="lazy"
+              />
+            }
+            action={
+              <IconButton aria-label="settings">
+                <KeyboardArrowRightIcon />
+              </IconButton>
+            }
+            title="Managing Product, Category, Unit"
+            subheader="setting up your products"
+          />
         </Card>
       </Grid>
+
       <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card>
-          <Stack>
-            <Typography variant="h6" color="textSecondary">
-              First Card
-            </Typography>
-            <Grid container alignItems="center">
-              <Grid item>
-                <Typography variant="h4" color="inherit">
-                  1111
-                </Typography>
-              </Grid>
-            </Grid>
-          </Stack>
+        <Card>
+            <CardHeader
+            avatar={
+              <img
+                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
+                src={``}
+                alt={`Good Job`}
+                width={`35px`}
+                height={`35px`}
+                loading="lazy"
+              />
+            }
+            action={
+              <IconButton aria-label="settings">
+                <KeyboardArrowRightIcon />
+              </IconButton>
+            }
+            title="Managing Product, Category, Unit"
+            subheader="setting up your products"
+          />
         </Card>
       </Grid>
+
       <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card>
-          <Stack>
-            <Typography variant="h6" color="textSecondary">
-              First Card
-            </Typography>
-            <Grid container alignItems="center">
-              <Grid item>
-                <Typography variant="h4" color="inherit">
-                  1111
-                </Typography>
-              </Grid>
-            </Grid>
-          </Stack>
+        <Card>
+            <CardHeader
+            avatar={
+              <img
+                srcSet={`https://cdn-icons-png.flaticon.com/512/465/465598.png`}
+                src={``}
+                alt={`Good Job`}
+                width={`35px`}
+                height={`35px`}
+                loading="lazy"
+              />
+            }
+            action={
+              <IconButton aria-label="settings">
+                <KeyboardArrowRightIcon />
+              </IconButton>
+            }
+            title="Managing Product, Category, Unit"
+            subheader="setting up your products"
+          />
         </Card>
       </Grid>
 
