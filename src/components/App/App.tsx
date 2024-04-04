@@ -40,12 +40,12 @@ const Inner: FC = () => {
 const MainMenu: FC = () => {
   return (
     <>
-    <Grid container bgcolor={'white'} height={150} alignItems={'center'} alignContent={'center'}>
+    <Grid container sx={{ display: 'flex' }} bgcolor={'white'} height={150} alignItems={'center'} alignContent={'center'}>
       <Grid flexDirection={'row'}>
-        <Typography variant="h1" component="h3" color={'gray'}>
+        <Typography sx={{ display: 'flex' }} variant="h4" component="h4" color={'gray'}>
           $
         </Typography>
-        <Typography variant="h1" component="h3" color={'white'}>
+        <Typography sx={{ display: 'flex' }} variant="h4" component="h4" color={'white'}>
           0.00
         </Typography>
       </Grid>
