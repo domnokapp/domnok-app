@@ -28,6 +28,8 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { routes } from '../../navigation/routes.ts';
 
+import { ActivationCard, Box, Flex } from 'gestalt';
+
 const Inner: FC = () => {
   return (
     <Routes>
@@ -41,16 +43,24 @@ const MainMenu: FC = () => {
   return (
     <>
     <Grid container sx={{ display: 'flex' }} bgcolor={'white'} height={150} alignItems={'center'} alignContent={'center'}>
-      <Grid flexDirection={'row'}>
-        <Typography sx={{ display: 'flex' }} variant="h4" component="h4" color={'gray'}>
-          $
-        </Typography>
-        <Typography sx={{ display: 'flex' }} variant="h4" component="h4" color={'white'}>
-          0.00
-        </Typography>
-      </Grid>
+    <Box
+      alignItems="center"
+      display="flex"
+      height="100%"
+      justifyContent="center"
+      padding={8}
+    >
+      <Flex>
+        <ActivationCard
+          message="Tag is installed and healthy"
+          status="complete"
+          statusMessage="Completed"
+          title="Nice work"
+        />
+      </Flex>
+    </Box>
     </Grid>
-    <Grid container rowSpacing={1.5} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Grid container marginTop={0.5} rowSpacing={1.5} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {Array.from(Array(6)).map((_, index) => (
         <Grid item xs={2} sm={4} md={4} key={index}>
           <Card>DDD</Card>
