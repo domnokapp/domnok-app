@@ -15,7 +15,6 @@ import {
 } from 'react-router-dom';
 
 import {
-  Avatar,
   Card,
   CardHeader,
   Grid,
@@ -28,7 +27,7 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { routes } from '../../navigation/routes.ts';
 
-import { ActivationCard, Box, Flex, Container } from 'gestalt';
+import { ActivationCard, Box, Flex, Avatar, TapArea, Text } from 'gestalt';
 import 'gestalt/dist/gestalt.css';
 
 const Inner: FC = () => {
@@ -44,6 +43,35 @@ const MainMenu: FC = () => {
   return (
     <>
     <Grid container sx={{ display: 'flex' }} bgcolor={'white'} height={150} alignItems={'center'} alignContent={'center'}>
+
+    <Box
+      alignItems="center"
+      display="flex"
+      height="100%"
+      justifyContent="center"
+      padding={8}
+    >
+      <Box borderStyle="sm" rounding={4} width={170}>
+        <TapArea rounding={4}>
+          <Box
+            alignItems="center"
+            direction="column"
+            display="flex"
+            padding={3}
+          >
+            <Avatar
+              name="Alberto"
+              size="xl"
+              src="https://cdn-icons-png.flaticon.com/512/465/465601.png"
+              verified
+            />
+            <Text weight="bold">Alberto&apos;s Profile</Text>
+          </Box>
+        </TapArea>
+      </Box>
+    </Box>
+
+
     <Box
       alignItems="center"
       display="flex"
