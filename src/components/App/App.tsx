@@ -4,6 +4,7 @@ import {
   useNavigatorIntegration,
 } from '@tma.js/react-router-integration';
 import { useBackButton } from '@tma.js/sdk-react';
+import { init } from '@tma.js/sdk';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 import {
@@ -124,6 +125,16 @@ export const App: FC = () => {
   const backButton = useBackButton();
 
   useBackButtonIntegration(tmaNavigator, backButton);
+
+  const { mainButton, viewport } = init();
+  mainButton.on('click', () => viewport.expand());
+
+  mainButton
+    .setBackgroundColor('#ff0000')
+    .setTextColor('#ffffff')
+    .setText('Quick Scan')
+    .enable()
+    .show();
 
   return (
     <Router location={location} navigator={navigator}>
