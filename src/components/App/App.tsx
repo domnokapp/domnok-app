@@ -40,10 +40,20 @@ const Inner: FC = () => {
 const MainMenu: FC = () => {
   return (
     <>
-    <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+    <Grid container bgcolor={'white'} height={150} alignItems={'center'} alignContent={'center'}>
+      <Grid flexDirection={'row'}>
+        <Typography variant="h1" component="h3" color={'gray'}>
+          $
+        </Typography>
+        <Typography variant="h1" component="h3" color={'white'}>
+          0.00
+        </Typography>
+      </Grid>
+    </Grid>
+    <Grid container rowSpacing={1.5} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {Array.from(Array(6)).map((_, index) => (
         <Grid item xs={2} sm={4} md={4} key={index}>
-          <Grid item>xs=2</Grid>
+          <Card>DDD</Card>
         </Grid>
       ))}
     </Grid>
