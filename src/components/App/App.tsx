@@ -52,8 +52,8 @@ const MainMenu: FC = () => {
               //   R
               // </Avatar>
               <img
-                srcSet={`/assets/images/icon/icon-category.png?w=35&h=35&fit=crop&auto=format&dpr=2 2x`}
-                src={`/assets/images/icon/icon-category.png?w=35&h=35&fit=crop&auto=format`}
+                srcSet={`https://pub-331de4128b9f4ebbae98544884357a16.r2.dev/clipboard-check-svgrepo-com.svg?w=35&h=35&fit=crop&auto=format&dpr=2 2x`}
+                src={`https://pub-331de4128b9f4ebbae98544884357a16.r2.dev/clipboard-check-svgrepo-com.svg?w=35&h=35&fit=crop&auto=format`}
                 alt={`Good Job`}
                 loading="lazy"
               />
