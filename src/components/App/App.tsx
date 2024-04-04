@@ -20,7 +20,9 @@ import {
   Box,
   Button,
   Card,
+  CardHeader,
   Grid,
+  IconButton,
   List,
   ListItemAvatar,
   ListItemButton,
@@ -31,6 +33,8 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
+
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import { routes } from '../../navigation/routes.ts';
 
@@ -49,8 +53,22 @@ const MainMenu: FC = () => {
       <Grid item xs={12} sx={{ mb: -2.25 }}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
-      <Grid item xs={3} sm={2} md={1} lg={1}>
+      <Grid item xs={4} sm={3} md={2} lg={1}>
         <Card>
+        <CardHeader
+        avatar={
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            R
+          </Avatar>
+        }
+        action={
+          <IconButton aria-label="settings">
+            <MoreVertIcon />
+          </IconButton>
+        }
+        title="Shrimp and Chorizo Paella"
+        subheader="September 14, 2016"
+      />
           <Stack>
             <Typography variant="h6" color="textSecondary">
               First Card
@@ -65,7 +83,7 @@ const MainMenu: FC = () => {
           </Stack>
         </Card>
       </Grid>
-      <Grid item xs={3} sm={2} md={1} lg={1}>
+      <Grid item xs={4} sm={3} md={2} lg={1}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
@@ -81,7 +99,7 @@ const MainMenu: FC = () => {
           </Stack>
         </Card>
       </Grid>
-      <Grid item xs={3} sm={2} md={1} lg={1}>
+      <Grid item xs={4} sm={3} md={2} lg={1}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
@@ -97,7 +115,7 @@ const MainMenu: FC = () => {
           </Stack>
         </Card>
       </Grid>
-      <Grid item xs={3} sm={2} md={1} lg={1}>
+      <Grid item xs={4} sm={3} md={2} lg={1}>
       <Card>
           <Stack>
             <Typography variant="h6" color="textSecondary">
