@@ -55,6 +55,8 @@ const MainMenu: FC = () => {
                 srcSet={`https://pub-331de4128b9f4ebbae98544884357a16.r2.dev/clipboard-check-svgrepo-com.svg?w=35&h=35&fit=crop&auto=format&dpr=2 2x`}
                 src={`https://pub-331de4128b9f4ebbae98544884357a16.r2.dev/clipboard-check-svgrepo-com.svg?w=35&h=35&fit=crop&auto=format`}
                 alt={`Good Job`}
+                width={`35px`}
+                height={`35px`}
                 loading="lazy"
               />
             }
