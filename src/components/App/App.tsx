@@ -28,7 +28,12 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { routes } from '../../navigation/routes.ts';
 
 import '@xelene/tgui/dist/styles.css';
-import { Banner, Button, Image, Section, Cell } from '@xelene/tgui';
+import { ReactNode } from 'react';
+import { Cell, IconContainer, Section } from '@xelene/tgui';
+
+import { Icon28Chat } from '@xelene/tgui/dist/icons/28/chat';
+import { Icon28Devices } from '@xelene/tgui/dist/icons/28/devices';
+import { Icon28Stats } from '@xelene/tgui/dist/icons/28/stats';
 
 const TON_SITE_LINK = 'https://ton.space/';
 
@@ -41,32 +46,45 @@ const Inner: FC = () => {
   );
 };
 
+type CellProps = {
+  id: number;
+  icon: ReactNode;
+  text: string;
+}
+
+const cells: CellProps[] = [
+  {
+    id: 1,
+    icon: <Icon28Chat />,
+    text: 'Chat Settings',
+  },
+  {
+    id: 2,
+    icon: <Icon28Devices />,
+    text: 'Data and Storage',
+  },
+  {
+    id: 3,
+    icon: <Icon28Stats />,
+    text: 'Devices',
+  },
+];
+
 const MainMenu: FC = () => {
   return (
     <>
-    <Grid container sx={{ display: 'flex' }} bgcolor={'white'} height={150} alignItems={'center'} alignContent={'center'}>
-      <Button>
-        <Cell>
-          Hello
+    
+    <Section header="This is section header" footer="And this is footer">
+      {cells.map((cell) => (
+        <Cell
+          key={cell.id}
+          before={<IconContainer>{cell.icon}</IconContainer>}
+        >
+          {cell.text}
         </Cell>
-      </Button>
-    </Grid>
-    <Section header="Banner inside section">
-    <Banner
-      before={<Image size={48} />}
-      header="Introducing TON Space"
-      subheader="Start exploring TON in a new, better way"
-    >
-      <Button
-        size="s"
-        Component="a"
-        target="_blank"
-        href={TON_SITE_LINK}
-      >
-        Try it out
-      </Button>
-    </Banner>
-  </Section>
+      ))}
+    </Section>
+
     <Grid container marginTop={0.5} rowSpacing={1.5} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {Array.from(Array(6)).map((_, index) => (
         <Grid item xs={2} sm={4} md={4} key={index}>
