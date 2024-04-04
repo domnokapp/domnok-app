@@ -28,7 +28,9 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { routes } from '../../navigation/routes.ts';
 
 import '@xelene/tgui/dist/styles.css';
-import { Button, Cell } from '@xelene/tgui';
+import { Banner, Button, Image, Section, Cell } from '@xelene/tgui';
+
+const TON_SITE_LINK = 'https://ton.space/';
 
 const Inner: FC = () => {
   return (
@@ -49,6 +51,22 @@ const MainMenu: FC = () => {
         </Cell>
       </Button>
     </Grid>
+    <Section header="Banner inside section">
+    <Banner
+      before={<Image size={48} />}
+      header="Introducing TON Space"
+      subheader="Start exploring TON in a new, better way"
+    >
+      <Button
+        size="s"
+        Component="a"
+        target="_blank"
+        href={TON_SITE_LINK}
+      >
+        Try it out
+      </Button>
+    </Banner>
+  </Section>
     <Grid container marginTop={0.5} rowSpacing={1.5} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {Array.from(Array(6)).map((_, index) => (
         <Grid item xs={2} sm={4} md={4} key={index}>
