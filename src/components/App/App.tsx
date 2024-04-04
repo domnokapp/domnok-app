@@ -16,27 +16,18 @@ import {
 
 import {
   Avatar,
-  AvatarGroup,
-  Box,
-  Button,
   Card,
   CardHeader,
   Grid,
   IconButton,
-  List,
-  ListItemAvatar,
-  ListItemButton,
-  ListItemSecondaryAction,
-  ListItemText,
-  MenuItem,
   Stack,
-  TextField,
   Typography,
 } from '@mui/material';
 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 import { routes } from '../../navigation/routes.ts';
+import { red } from '@mui/material/colors';
 
 const Inner: FC = () => {
   return (
@@ -55,20 +46,20 @@ const MainMenu: FC = () => {
       </Grid>
       <Grid item xs={4} sm={3} md={2} lg={1}>
         <Card>
-        <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
+            <CardHeader
+            avatar={
+              <Avatar sx={{ bgcolor: red }} aria-label="recipe">
+                R
+              </Avatar>
+            }
+            action={
+              <IconButton aria-label="settings">
+                <MoreVertIcon />
+              </IconButton>
+            }
+            title="Shrimp and Chorizo Paella"
+            subheader="September 14, 2016"
+          />
           <Stack>
             <Typography variant="h6" color="textSecondary">
               First Card
