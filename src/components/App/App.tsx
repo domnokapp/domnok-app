@@ -27,8 +27,8 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 import { routes } from '../../navigation/routes.ts';
 
-import { ActivationCard, Box, Flex, Avatar, TapArea, Text } from 'gestalt';
-import 'gestalt/dist/gestalt.css';
+import '@xelene/tgui/dist/styles.css';
+import { Button, Cell } from '@xelene/tgui';
 
 const Inner: FC = () => {
   return (
@@ -43,51 +43,11 @@ const MainMenu: FC = () => {
   return (
     <>
     <Grid container sx={{ display: 'flex' }} bgcolor={'white'} height={150} alignItems={'center'} alignContent={'center'}>
-
-    <Box
-      alignItems="center"
-      display="flex"
-      height="100%"
-      justifyContent="center"
-      padding={8}
-    >
-      <Box borderStyle="sm" rounding={4} width={170}>
-        <TapArea rounding={4}>
-          <Box
-            alignItems="center"
-            direction="column"
-            display="flex"
-            padding={3}
-          >
-            <Avatar
-              name="Alberto"
-              size="xl"
-              src="https://cdn-icons-png.flaticon.com/512/465/465601.png"
-              verified
-            />
-            <Text weight="bold">Alberto&apos;s Profile</Text>
-          </Box>
-        </TapArea>
-      </Box>
-    </Box>
-
-
-    <Box
-      alignItems="center"
-      display="flex"
-      height="100%"
-      justifyContent="center"
-      padding={8}
-    >
-      <Flex>
-        <ActivationCard
-          message="Tag is installed and healthy"
-          status="complete"
-          statusMessage="Completed"
-          title="Nice work"
-        />
-      </Flex>
-    </Box>
+      <Button>
+        <Cell>
+          Hello
+        </Cell>
+      </Button>
     </Grid>
     <Grid container marginTop={0.5} rowSpacing={1.5} spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {Array.from(Array(6)).map((_, index) => (
