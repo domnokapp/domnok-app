@@ -93,10 +93,9 @@ const MainMenu: FC = () => {
 const TestForm: FC = () => (
   <Section header="Form Section">
     <Input header="Name" placeholder="Your product's name" />
-    <ColorInput name="Color" />
-    <FileInput name="Photo" placeholder="Upload your product's photo" />
+    <ColorInput header="Color" />
+    <FileInput label="Photo" />
     <Slider
-      title="Rating"
       step={25}
       before={(
         <IconContainer className={styles.sliderIcon}>
