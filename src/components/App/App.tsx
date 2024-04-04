@@ -48,9 +48,15 @@ const MainMenu: FC = () => {
         <Card>
             <CardHeader
             avatar={
-              <Avatar sx={{ bgcolor: red }} aria-label="recipe">
-                R
-              </Avatar>
+              // <Avatar sx={{ bgcolor: red }} aria-label="recipe">
+              //   R
+              // </Avatar>
+              <img
+                srcSet={`/assets/images/icon/icon-category.png?w=35&h=35&fit=crop&auto=format&dpr=2 2x`}
+                src={`/assets/images/icon/icon-category.png?w=35&h=35&fit=crop&auto=format`}
+                alt={`Good Job`}
+                loading="lazy"
+              />
             }
             action={
               <IconButton aria-label="settings">
