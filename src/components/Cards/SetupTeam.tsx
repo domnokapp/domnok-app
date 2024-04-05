@@ -1,9 +1,9 @@
-import { Button, Paper, Text, Group, Alert } from '@mantine/core';
-import { IconSettings } from '@tabler/icons-react';
+import { Button, Text, Group, Alert } from '@mantine/core';
+import { IconBuildingStore } from '@tabler/icons-react';
 
 export function SetupTeam() {
     return (
-        <Alert p="lg" radius="md" m="sm" variant="outline" icon={<IconSettings />} color='orange'>
+        <Alert p="lg" radius="md" m="sm" icon={<IconBuildingStore />} color='orange'>
             <Group justify="space-between" mb="xs">
                 <Text fw={500} size="lg">
                     បង្កើតហាងថ្មី
