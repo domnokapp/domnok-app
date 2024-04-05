@@ -80,6 +80,7 @@ const MainMenu: FC = () => {
           <Cell
             key={catalog.id}
             before={<IconContainer>{catalog.icon}</IconContainer>}
+            onClick={ () => <Navigate to="/manage-product" /> }
           >
             {catalog.text}
           </Cell>
