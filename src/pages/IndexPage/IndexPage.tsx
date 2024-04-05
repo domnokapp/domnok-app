@@ -23,13 +23,9 @@ export const IndexPage: FC = () => {
 
   }, [initData]);
 
-  const userContact = useMemo<{}|null>(async () => {
-    return await JSON.parse(localStorage.getItem("UserContact") || '');
-  }, []);
-
   return (
     <Page title="Dashboard">
-      { userObj && userContact != undefined
+      { userObj
           ? (
             <>
               <UserCard
@@ -37,7 +33,7 @@ export const IndexPage: FC = () => {
                 lastName={userObj.lastName}
                 photoUrl={userObj.photoUrl} 
                 username={userObj.username}
-                phoneNumber={JSON.stringify(userContact)}
+                phoneNumber=""
               />
               <SetupTeam />
               <ActionsGrid />

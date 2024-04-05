@@ -33,19 +33,6 @@ export const App: FC = () => {
   const backButton = useBackButton();
   useBackButtonIntegration(tmaNavigator, backButton);
 
-  const miniApp = new MiniApp({
-    headerColor: 'bg_color',
-    backgroundColor: '#ffffff',
-    version: '6.4',
-    botInline: false,
-    postEvent,
-  });
-  
-  // miniApp.setBackgroundColor('#ffffff');
-  miniApp.requestContact().then(async contact => {
-    await localStorage.setItem("UserContact", JSON.stringify(contact.contact));
-  });
-
   return (
       <Router location={location} navigator={navigator}>
           <Inner />
