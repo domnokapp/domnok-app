@@ -1,7 +1,6 @@
 import { UnstyledButton, Group, Avatar, Text, rem } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons-react';
 import classes from './UserButton.module.css';
-import { Navigator } from 'react-router-dom';
 import { Link } from '../Link';
 
 type UserProps = {

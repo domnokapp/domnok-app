@@ -45,13 +45,7 @@ import { Link } from '../Link';
     ));
 
     const catalogs = catalogMenus.map((item) => (
-        <UnstyledButton style={{
-          '--radius': '0.5rem',
-          borderRadius: 'var(--radius)',
-          boxShadow: '0.5rem',
-          border: 1,
-          borderColor: 'gray',
-        }} key={item.title} className={classes.item} py={10} onClick={ () => alert(`Hello, ${item.title}`) }>
+        <UnstyledButton key={item.title} className={classes.item} py={10} onClick={ () => alert(`Hello, ${item.title}`) }>
           <item.icon color={theme.colors[item.color][6]} size="2rem" />
           <Text size="md" mt={7}>
             {item.title}

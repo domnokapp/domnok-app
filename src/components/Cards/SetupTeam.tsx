@@ -3,7 +3,7 @@ import { IconBuildingStore } from '@tabler/icons-react';
 
 export function SetupTeam() {
     return (
-        <Alert p="lg" radius="md" m="sm" icon={<IconBuildingStore />} color='orange'>
+        <Alert p="lg" radius="md" icon={<IconBuildingStore />} color='orange'>
             <Group justify="space-between" mb="xs">
                 <Text fw={500} size="lg">
                     បង្កើតហាងថ្មី
