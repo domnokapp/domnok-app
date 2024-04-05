@@ -34,7 +34,7 @@ export const IndexPage: FC = () => {
 
   return (
     <Page title="Dashboard">
-      { userObj && constact.length != undefined
+      { userObj
           ? (
             <>
               <UserCard
