@@ -1,4 +1,4 @@
-import { UnstyledButton, Group, Avatar, Text, rem, NavLink } from '@mantine/core';
+import { UnstyledButton, Group, Avatar, Text, rem } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons-react';
 import classes from './UserButton.module.css';
 import { Navigator } from 'react-router-dom';
@@ -13,8 +13,7 @@ type UserProps = {
 
 export function UserCard({firstName, lastName, photoUrl, username, navigator}: UserProps) {
   return (
-    <NavLink onClick={() => navigator.push("#manage-product")}>
-    <UnstyledButton className={classes.user}>
+    <UnstyledButton className={classes.user} onClick={() => navigator.push("#manage-product")}>
       <Group>
         <Avatar
           src={ photoUrl ? photoUrl : "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png" }
@@ -34,6 +33,5 @@ export function UserCard({firstName, lastName, photoUrl, username, navigator}: U
         <IconChevronRight style={{ width: rem(14), height: rem(14) }} stroke={1.5} />
       </Group>
     </UnstyledButton>
-    </NavLink>
   );
 }
