@@ -14,7 +14,7 @@ export function UserCard({firstName, lastName, photoUrl, username}: UserProps) {
     <UnstyledButton className={classes.user}>
       <Group>
         <Avatar
-          src="https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png"
+          src={ photoUrl ? photoUrl : "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png" }
           radius="xl"
         />
 

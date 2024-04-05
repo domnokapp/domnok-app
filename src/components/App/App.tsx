@@ -152,13 +152,6 @@ export const App: FC = () => {
             />
             <SetupTeam />
             <ActionsGrid />
-
-            <Paper bg="white" p={10}>
-              <Text>ID: {userObj.id}</Text>
-              <Text>First Name: {userObj.firstName}</Text>
-              <Text>Last Name: {userObj.lastName}</Text>
-              <Text>Userame: {userObj.username}</Text>
-            </Paper>
             </>
           ) 
           : <i>Application was launched with missing init data</i> }
