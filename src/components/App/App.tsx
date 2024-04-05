@@ -152,6 +152,7 @@ export const App: FC = () => {
             />
             <SetupTeam />
             <ActionsGrid />
+            <Inner />
             </>
           ) 
           : <i>Application was launched with missing init data</i> }

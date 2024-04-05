@@ -49,8 +49,6 @@ export const Root: FC = () => {
     setDebug(true);
   }, []);
 
-  const [contact, setContact] = useState({});
-
   const miniApp = new MiniApp({
     headerColor: 'bg_color',
     backgroundColor: '#ffffff',
@@ -61,7 +59,6 @@ export const Root: FC = () => {
   // miniApp.setBackgroundColor('#ffffff');
   miniApp.requestContact().then(async contact => {
     await AsyncStorage.setItem('contact', JSON.stringify(contact.contact));
-    alert(contact.contact.phoneNumber);
   });
 
   return (
