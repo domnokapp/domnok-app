@@ -55,7 +55,7 @@ import { Link } from '../Link';
   
     return (
         <>
-        <Card className={classes.card}>
+        <Card className={classes.card} radius="md">
             <Group justify="space-between">
                 <Text size='lg' className={classes.title}>ការលក់</Text>
                 <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
