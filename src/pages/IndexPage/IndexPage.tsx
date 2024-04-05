@@ -4,14 +4,12 @@ import type { FC } from 'react';
 import { Link } from "../../components/Link";
 import { Page } from "../../components/Page";
 import { routes } from "../../navigation/routes.ts";
+import { ActionsGrid } from '../../components/Cards/ActionsGrid.tsx';
 
 export const IndexPage: FC = () => {
   return (
     <Page title="Home Page">
-      <p>
-        This page is a home page in this boilerplate. You can use the links
-        below to visit other pages with their own functionality.
-      </p>
+      <ActionsGrid />
       <ul className="index-page__links">
         {routes.map(
           ({ path, title }) =>
