@@ -7,7 +7,6 @@ import { User } from '@tma.js/sdk';
 import { useInitData } from '@tma.js/sdk-react';
 import { UserCard } from '../../components/Cards/UserCard.tsx';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const IndexPage: FC = () => {
 
@@ -22,15 +21,6 @@ export const IndexPage: FC = () => {
     return user;
 
   }, [initData]);
-
-  const constact = async () => {
-    try {
-      const jsonValue = await AsyncStorage.getItem('contact');
-      return jsonValue != null ? JSON.parse(jsonValue) : null;
-    } catch (e) {
-      // error reading value
-    }
-  };
 
   return (
     <Page title="Dashboard">
