@@ -58,7 +58,7 @@ export const App: FC = () => {
     };
 
   return (
-    <Router location={location} navigator={navigator}>
+    <>
         { userObj && constact.length != undefined
           ? (
             <>
@@ -74,6 +74,6 @@ export const App: FC = () => {
             </>
           ) 
           : <i>Application was launched with missing init data</i> }
-    </Router>
+      </>
   );
 };
