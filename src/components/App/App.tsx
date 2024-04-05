@@ -28,6 +28,7 @@ import { Icon28Stats } from '@xelene/tgui/dist/icons/28/stats';
 import { ProductFormPage } from '../../pages/ProductPage/ProductFormPage.tsx';
 import { Icon24SunLow } from '@xelene/tgui/dist/icons/24/sun_low';
 import { ActionsGrid } from '../Cards/ActionsGrid.tsx';
+import { SetupTeam } from '../Cards/SetupTeam.tsx';
 
 const Inner: FC = () => {
   return (
@@ -128,6 +129,7 @@ export const App: FC = () => {
   return (
     <Router location={location} navigator={navigator}>
       <>
+        <SetupTeam />
         <ActionsGrid />
         {/* <MainMenu />
         <TestForm /> */}

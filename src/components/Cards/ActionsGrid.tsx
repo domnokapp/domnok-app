@@ -6,18 +6,8 @@ import {
     Anchor,
     Group,
     useMantineTheme,
-    NavLink,
   } from '@mantine/core';
   import {
-    IconCreditCard,
-    IconBuildingBank,
-    IconRepeat,
-    IconReceiptRefund,
-    IconReceipt,
-    IconReceiptTax,
-    IconReport,
-    IconCashBanknote,
-    IconCoin,
     IconScan,
     IconFileDollar,
     IconChartHistogram,
