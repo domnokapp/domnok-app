@@ -6,7 +6,7 @@ import {
   useNavigatorIntegration,
 } from '@tma.js/react-router-integration';
 import { useInitData, useBackButton } from '@tma.js/sdk-react';
-import { User, MiniApp } from '@tma.js/sdk';
+import { User } from '@tma.js/sdk';
 import type { FC } from 'react';
 import { useMemo, useState } from 'react';
 import {
@@ -30,6 +30,7 @@ import { Icon24SunLow } from '@xelene/tgui/dist/icons/24/sun_low';
 import { ActionsGrid } from '../Cards/ActionsGrid.tsx';
 import { SetupTeam } from '../Cards/SetupTeam.tsx';
 import { Paper, Text } from '@mantine/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Inner: FC = () => {
   return (
@@ -117,29 +118,6 @@ export const App: FC = () => {
   const backButton = useBackButton();
   useBackButtonIntegration(tmaNavigator, backButton);
 
-  // const { mainButton, viewport } = init();
-  // mainButton.on('click', () => viewport.expand());
-
-  // mainButton
-  //   .setBackgroundColor('#ff0000')
-  //   .setTextColor('#ffffff')
-  //   .setText('Quick Scan')
-  //   .enable()
-  //   .show();
-  const [phoneNumber, setPhoneNumber] = useState('');
-
-  const miniApp = new MiniApp({
-    headerColor: 'bg_color',
-    backgroundColor: '#ffffff',
-    version: '6.4',
-    botInline: false,
-    postEvent,
-  });
-  // miniApp.setBackgroundColor('#ffffff');
-  miniApp.requestContact().then(contact => {
-    setPhoneNumber(contact.contact.phoneNumber);
-  });
-
     const userObj = useMemo<User | undefined>(() => {
 
       if (!initData) {
@@ -151,9 +129,18 @@ export const App: FC = () => {
 
     }, [initData]);
 
+    const constact = async () => {
+      try {
+        const jsonValue = await AsyncStorage.getItem('contact');
+        return jsonValue != null ? JSON.parse(jsonValue) : null;
+      } catch (e) {
+        // error reading value
+      }
+    };
+
   return (
     <Router location={location} navigator={navigator}>
-        { userObj 
+        { userObj && constact.length != undefined
           ? (
             <>
             <SetupTeam />
@@ -164,7 +151,7 @@ export const App: FC = () => {
               <Text>First Name: {userObj.firstName}</Text>
               <Text>Last Name: {userObj.lastName}</Text>
               <Text>Userame: {userObj.username}</Text>
-              <Text>Phone Number: {phoneNumber}</Text>
+              <Text>Phone Number: {constact.phoneNumber}</Text>
             </Paper>
             </>
           ) 

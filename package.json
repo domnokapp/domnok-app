@@ -21,6 +21,7 @@
     "@mantine/hooks": "^7.7.1",
     "@mui/icons-material": "^5.15.14",
     "@mui/material": "^5.15.14",
+    "@react-native-async-storage/async-storage": "^1.23.1",
     "@tabler/icons-react": "^3.1.0",
     "@tma.js/react-router-integration": "^0.1.2",
     "@tma.js/sdk": "^1.5.1",

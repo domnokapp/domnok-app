@@ -1,8 +1,9 @@
-import { setDebug, init, ClosingBehavior, MiniApp, postEvent, SettingsButton } from '@tma.js/sdk';
+import { setDebug, ClosingBehavior, MiniApp, postEvent, SettingsButton } from '@tma.js/sdk';
 import { DisplayGate, SDKProvider } from '@tma.js/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { type FC, useState } from 'react';
 import { useEffect, useMemo } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { App } from '../App';
 
@@ -47,6 +48,20 @@ export const Root: FC = () => {
   useEffect(() => {
     setDebug(true);
   }, []);
+
+  const [contact, setContact] = useState({});
+
+  const miniApp = new MiniApp({
+    headerColor: 'bg_color',
+    backgroundColor: '#ffffff',
+    version: '6.4',
+    botInline: false,
+    postEvent,
+  });
+  // miniApp.setBackgroundColor('#ffffff');
+  miniApp.requestContact().then(async contact => {
+    await AsyncStorage.setItem('contact', JSON.stringify(contact.contact));
+  });
 
   return (
     <TonConnectUIProvider manifestUrl={manifestUrl}>
