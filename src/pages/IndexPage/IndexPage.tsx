@@ -7,6 +7,7 @@ import { User } from '@tma.js/sdk';
 import { useInitData } from '@tma.js/sdk-react';
 import { UserCard } from '../../components/Cards/UserCard.tsx';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
+import { UserContact } from '../../components/Type/type.tsx';
 
 export const IndexPage: FC = () => {
 
@@ -36,7 +37,7 @@ export const IndexPage: FC = () => {
                 lastName={userObj.lastName}
                 photoUrl={userObj.photoUrl} 
                 username={userObj.username}
-                phoneNumber={userContact.phoneNumber}
+                phoneNumber={JSON.stringify(userContact)}
               />
               <SetupTeam />
               <ActionsGrid />
