@@ -127,12 +127,12 @@ type UserProps = {
   value: string;
 };
 
-function UserInfo (title, value) {
+function UserInfo(user: UserProps) {
   return (
     <>
     <Paper>
-      <Text fz="lg">{title}</Text>
-      <Text fz="sm">{value}</Text>
+      <Text fz="lg">{user.title}</Text>
+      <Text fz="sm">{user.value}</Text>
     </Paper>
     </>
   );
@@ -173,7 +173,7 @@ export const App: FC = () => {
     <Router location={location} navigator={navigator}>
       <>
         <SetupTeam />
-        <UserInfo title={user?.title} value={user?.value} />
+        <UserInfo user={user} />
         <ActionsGrid />
         {/* <MainMenu />
         <TestForm /> */}
