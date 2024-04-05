@@ -34,14 +34,14 @@ import { Link } from '../Link';
     const theme = useMantineTheme();
   
     const orders = orderMenus.map((item) => (
-        <Link to={item.path}>
-            <UnstyledButton key={item.title} className={classes.item} py={10} onClick={ () => alert(`Hello, ${item.title}`) }>
+        <UnstyledButton key={item.title} className={classes.item} py={10}>
+            <Link to={item.path}>
                 <item.icon color={theme.colors[item.color][6]} size="2rem" />
                 <Text size="md" mt={7}>
                 {item.title}
                 </Text>
-            </UnstyledButton>
-      </Link>
+            </Link>
+        </UnstyledButton>
     ));
 
     const catalogs = catalogMenus.map((item) => (
