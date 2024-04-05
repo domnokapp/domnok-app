@@ -6,6 +6,7 @@ import {
     Anchor,
     Group,
     useMantineTheme,
+    NavLink,
   } from '@mantine/core';
   import {
     IconCreditCard,
@@ -33,7 +34,7 @@ import {
     const theme = useMantineTheme();
   
     const items = mockdata.map((item) => (
-      <UnstyledButton key={item.title} className={classes.item} py={5}>
+      <UnstyledButton key={item.title} className={classes.item} py={10} onClick={ () => (<NavLink href='#manage-product' />) }>
         <item.icon color={theme.colors[item.color][6]} size="2rem" />
         <Text size="md" mt={7}>
           {item.title}
@@ -42,7 +43,7 @@ import {
     ));
   
     return (
-      <Card withBorder radius="lg" className={classes.card}>
+      <Card withBorder radius="md" className={classes.card}>
         <Group justify="space-between">
             <Text size='lg' className={classes.title}>ការលក់</Text>
             <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
