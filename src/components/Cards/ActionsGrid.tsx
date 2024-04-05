@@ -74,7 +74,7 @@ import {
   
     return (
         <>
-        <Card withBorder radius="md" className={classes.card}>
+        <Card className={classes.card}>
             <Group justify="space-between">
                 <Text size='lg' className={classes.title}>ការលក់</Text>
                 <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
@@ -84,10 +84,8 @@ import {
             <SimpleGrid cols={3} mt="md">
                 {orders}
             </SimpleGrid>
-        </Card>
 
-        <Card withBorder radius="md" className={classes.card} mt={7}>
-            <Group justify="space-between">
+            <Group justify="space-between" mt={7}>
                 <Text size='lg' className={classes.title}>ផលិតផល</Text>
                 <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
                     គ្រប់គ្រងការផលិតផល
