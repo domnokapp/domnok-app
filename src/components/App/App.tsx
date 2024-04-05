@@ -110,26 +110,12 @@ const TestForm: FC = () => (
   </Section>
 );
 
-function getUser(user: User) {
-  return [
-    { title: 'ID', value: user.id.toString() },
-    { title: 'Last name', value: user.lastName },
-    { title: 'First name', value: user.firstName },
-    { title: 'Is bot', value: user.isBot ? 'yes' : 'no' },
-    { title: 'Is premium', value: user.isPremium ? 'yes' : 'no' },
-    { title: 'Language code', value: user.languageCode },
-    { title: 'Username', value: user.username },
-  ];
-}
-
-function UserInfo(user: User) {
+const UserInfo: FC = (user: User) => {
   return (
-    <>
     <Paper>
-      <Text fz="lg">{user.id}</Text>
-      <Text fz="sm">{user.username}</Text>
+      <Text fz="lg">{user.id} A</Text>
+      <Text fz="sm">{user.username} B</Text>
     </Paper>
-    </>
   );
 };
 
@@ -151,28 +137,28 @@ export const App: FC = () => {
     .enable()
     .show();
 
-    const user = useMemo<User | undefined>(() => {
+    const userObj = useMemo<User | undefined>(() => {
 
       if (!initData) {
         return;
       }
 
-      const {
-        user,
-      } = initData;
+      const { user } = initData;
       return user;
 
     }, [initData]);
 
   return (
     <Router location={location} navigator={navigator}>
-      <>
-        <SetupTeam />
-        <UserInfo user={user} />
-        <ActionsGrid />
-        {/* <MainMenu />
-        <TestForm /> */}
-      </>
+        { userObj 
+          ? (
+            <>
+            <SetupTeam />
+            <UserInfo user={userObj} />
+            <ActionsGrid />
+            </>
+          ) 
+          : <i>Application was launched with missing init data</i> }
     </Router>
   );
 };
