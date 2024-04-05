@@ -3,7 +3,6 @@ import '@xelene/tgui/dist/styles.css';
 // core styles are required for all packages
 import '@mantine/core/styles.css';
 
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { AppRoot } from '@xelene/tgui';
 
