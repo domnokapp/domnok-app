@@ -38,7 +38,7 @@ export const IndexPage: FC = () => {
   };
 
   return (
-    <Page title="">
+    <Page title="Dashboard">
       { userObj && constact.length != undefined
           ? (
             <>
@@ -50,21 +50,10 @@ export const IndexPage: FC = () => {
                 navigator={navigator}
               />
               <SetupTeam />
-            {/* <ActionsGrid /> */}
+              <ActionsGrid />
             </>
           ) 
           : <i>Application was launched with missing init data</i> }
-      <ActionsGrid />
-      {/* <ul className="index-page__links">
-        {routes.map(
-          ({ path, title }) =>
-            title && (
-              <li className="index-page__link" key={path}>
-                <Link to={path}>{title}</Link>
-              </li>
-            ),
-        )}
-      </ul> */}
     </Page>
   );
 };

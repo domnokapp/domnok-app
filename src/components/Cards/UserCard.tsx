@@ -13,7 +13,7 @@ type UserProps = {
 
 export function UserCard({firstName, lastName, photoUrl, username, navigator}: UserProps) {
   return (
-    <UnstyledButton className={classes.user} onClick={() => navigator.push("#manage-product")}>
+    <UnstyledButton className={classes.user} onClick={() => navigator.push("/manage-product")}>
       <Group>
         <Avatar
           src={ photoUrl ? photoUrl : "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/avatars/avatar-8.png" }
