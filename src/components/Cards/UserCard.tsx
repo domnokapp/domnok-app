@@ -8,9 +8,10 @@ type UserProps = {
     lastName: string | undefined;
     photoUrl: string | undefined;
     username: string | undefined;
+    phoneNumber: string | undefined;
 };
 
-export function UserCard({firstName, lastName, photoUrl, username}: UserProps) {
+export function UserCard({firstName, lastName, photoUrl, username, phoneNumber}: UserProps) {
   return (
     <UnstyledButton className={classes.user}>
         <Link to="/manage-product">
@@ -26,7 +27,7 @@ export function UserCard({firstName, lastName, photoUrl, username}: UserProps) {
                     </Text>
 
                     <Text c="dimmed" size="xs">
-                        @{username}
+                        @{username} {phoneNumber}
                     </Text>
                 </div>
 
