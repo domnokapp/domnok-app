@@ -31,6 +31,7 @@ import { ActionsGrid } from '../Cards/ActionsGrid.tsx';
 import { SetupTeam } from '../Cards/SetupTeam.tsx';
 import { Paper, Text } from '@mantine/core';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { UserCard } from '../Cards/UserCard.tsx';
 
 const Inner: FC = () => {
   return (
@@ -143,6 +144,12 @@ export const App: FC = () => {
         { userObj && constact.length != undefined
           ? (
             <>
+            <UserCard
+              firstName={userObj.firstName}
+              lastName={userObj.lastName}
+              photoUrl={userObj.photoUrl} 
+              username={userObj.username}
+            />
             <SetupTeam />
             <ActionsGrid />
 
@@ -151,7 +158,6 @@ export const App: FC = () => {
               <Text>First Name: {userObj.firstName}</Text>
               <Text>Last Name: {userObj.lastName}</Text>
               <Text>Userame: {userObj.username}</Text>
-              <Text>Phone Number: {constact.phoneNumber}</Text>
             </Paper>
             </>
           ) 
