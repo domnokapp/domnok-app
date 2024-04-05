@@ -102,7 +102,6 @@ const MainMenu: FC = () => {
           <Cell
             key={catalog.id}
             before={<IconContainer>{catalog.icon}</IconContainer>}
-            after={<IconContainer></IconContainer>}
           >
             {catalog.text}
           </Cell>
