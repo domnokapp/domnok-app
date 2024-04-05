@@ -17,19 +17,16 @@ import {
     IconReport,
     IconCashBanknote,
     IconCoin,
+    IconScan,
+    IconFileDollar,
+    IconChartHistogram,
   } from '@tabler/icons-react';
   import classes from './ActionsGrid.module.css';
 
   const mockdata = [
-    { title: 'Credit cards', icon: IconCreditCard, color: 'violet' },
-    { title: 'Banks nearby', icon: IconBuildingBank, color: 'indigo' },
-    { title: 'Transfers', icon: IconRepeat, color: 'blue' },
-    { title: 'Refunds', icon: IconReceiptRefund, color: 'green' },
-    { title: 'Receipts', icon: IconReceipt, color: 'teal' },
-    { title: 'Taxes', icon: IconReceiptTax, color: 'cyan' },
-    { title: 'Reports', icon: IconReport, color: 'pink' },
-    { title: 'Payments', icon: IconCoin, color: 'red' },
-    { title: 'Cashback', icon: IconCashBanknote, color: 'orange' },
+    { title: 'បង្កើតថ្មី', icon: IconScan, color: 'violet' },
+    { title: 'បញ្ជីលក់', icon: IconFileDollar, color: 'indigo' },
+    { title: 'របាយការណ៍', icon: IconChartHistogram, color: 'blue' },
   ];
   
   export function ActionsGrid() {
@@ -47,10 +44,10 @@ import {
     return (
       <Card withBorder radius="md" className={classes.card}>
         <Group justify="space-between">
-          <Text className={classes.title}>Services</Text>
-          <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
-            + 21 other services
-          </Anchor>
+            <Text className={classes.title}>ការលក់</Text>
+            <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
+                គ្រប់គ្រងការលក់
+            </Anchor>
         </Group>
         <SimpleGrid cols={3} mt="md">
           {items}
