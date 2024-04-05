@@ -85,7 +85,7 @@ import {
                 {orders}
             </SimpleGrid>
 
-            <Group justify="space-between" mt={7}>
+            <Group justify="space-between" mt={15}>
                 <Text size='lg' className={classes.title}>ផលិតផល</Text>
                 <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
                     គ្រប់គ្រងការផលិតផល
@@ -94,6 +94,13 @@ import {
             <SimpleGrid cols={3} mt="md">
                 {catalogs}
             </SimpleGrid>
+
+            <Group justify="space-between" mt={15}>
+                <Text size='lg' className={classes.title}>ឃ្លាំង</Text>
+                <Anchor size="xs" c="dimmed" style={{ lineHeight: 1 }}>
+                    គ្រប់គ្រងការស្តុក
+                </Anchor>
+            </Group>
         </Card>
         </>
     );
