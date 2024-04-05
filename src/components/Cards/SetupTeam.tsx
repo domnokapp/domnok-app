@@ -14,7 +14,7 @@ export function SetupTeam() {
             </Text>
             <Group justify="flex-end" mt="md">
                 <Button variant="filled" size="sm">
-                    រៀបចំ
+                    ចាប់ផ្តើម
                 </Button>
             </Group>
         </Alert>

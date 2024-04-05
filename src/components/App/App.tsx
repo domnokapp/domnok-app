@@ -6,9 +6,9 @@ import {
   useNavigatorIntegration,
 } from '@tma.js/react-router-integration';
 import { useInitData, useBackButton } from '@tma.js/sdk-react';
-import { User, init } from '@tma.js/sdk';
+import { User, MiniApp } from '@tma.js/sdk';
 import type { FC } from 'react';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
   Navigate,
   Route,
@@ -115,18 +115,30 @@ export const App: FC = () => {
   const tmaNavigator = useMemo(createNavigator, []);
   const [location, navigator] = useNavigatorIntegration(tmaNavigator);
   const backButton = useBackButton();
-
   useBackButtonIntegration(tmaNavigator, backButton);
 
-  const { mainButton, viewport } = init();
-  mainButton.on('click', () => viewport.expand());
+  // const { mainButton, viewport } = init();
+  // mainButton.on('click', () => viewport.expand());
 
-  mainButton
-    .setBackgroundColor('#ff0000')
-    .setTextColor('#ffffff')
-    .setText('Quick Scan')
-    .enable()
-    .show();
+  // mainButton
+  //   .setBackgroundColor('#ff0000')
+  //   .setTextColor('#ffffff')
+  //   .setText('Quick Scan')
+  //   .enable()
+  //   .show();
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  const miniApp = new MiniApp({
+    headerColor: 'bg_color',
+    backgroundColor: '#ffffff',
+    version: '6.4',
+    botInline: false,
+    postEvent,
+  });
+  // miniApp.setBackgroundColor('#ffffff');
+  miniApp.requestContact().then(contact => {
+    setPhoneNumber(contact.contact.phoneNumber);
+  });
 
     const userObj = useMemo<User | undefined>(() => {
 
@@ -152,6 +164,7 @@ export const App: FC = () => {
               <Text>First Name: {userObj.firstName}</Text>
               <Text>Last Name: {userObj.lastName}</Text>
               <Text>Userame: {userObj.username}</Text>
+              <Text>Phone Number: {phoneNumber}</Text>
             </Paper>
             </>
           ) 

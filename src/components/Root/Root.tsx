@@ -28,19 +28,6 @@ export const Root: FC = () => {
     return new URL('tonconnect-manifest.json', window.location.href).toString();
   }, []);
 
-  const [userPhone, setUserPhone] = useState('');
-
-  const miniApp = new MiniApp({
-    headerColor: 'bg_color',
-    backgroundColor: '#ffffff',
-    version: '6.4',
-    botInline: false,
-    postEvent,
-  });
-  // miniApp.setBackgroundColor('#ffffff');
-  miniApp.requestPhoneAccess().then(() => {
-  });
-
   // const { mainButton, viewport } = init();
   // mainButton.on('click', () => viewport.expand());
 
