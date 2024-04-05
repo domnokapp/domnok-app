@@ -5,8 +5,8 @@ import {
   useBackButtonIntegration,
   useNavigatorIntegration,
 } from '@tma.js/react-router-integration';
-import { useBackButton } from '@tma.js/sdk-react';
-import { init } from '@tma.js/sdk';
+import { useInitData, useBackButton } from '@tma.js/sdk-react';
+import { User, init } from '@tma.js/sdk';
 import type { FC } from 'react';
 import { useMemo } from 'react';
 import {
@@ -29,6 +29,7 @@ import { ProductFormPage } from '../../pages/ProductPage/ProductFormPage.tsx';
 import { Icon24SunLow } from '@xelene/tgui/dist/icons/24/sun_low';
 import { ActionsGrid } from '../Cards/ActionsGrid.tsx';
 import { SetupTeam } from '../Cards/SetupTeam.tsx';
+import { Paper, Text } from '@mantine/core';
 
 const Inner: FC = () => {
   return (
@@ -109,7 +110,36 @@ const TestForm: FC = () => (
   </Section>
 );
 
+function getUser(user: User) {
+  return [
+    { title: 'ID', value: user.id.toString() },
+    { title: 'Last name', value: user.lastName },
+    { title: 'First name', value: user.firstName },
+    { title: 'Is bot', value: user.isBot ? 'yes' : 'no' },
+    { title: 'Is premium', value: user.isPremium ? 'yes' : 'no' },
+    { title: 'Language code', value: user.languageCode },
+    { title: 'Username', value: user.username },
+  ];
+}
+
+type UserProps = {
+  title: string;
+  value: string;
+};
+
+function UserInfo (title, value) {
+  return (
+    <>
+    <Paper>
+      <Text fz="lg">{title}</Text>
+      <Text fz="sm">{value}</Text>
+    </Paper>
+    </>
+  );
+};
+
 export const App: FC = () => {
+  const initData = useInitData();
   const tmaNavigator = useMemo(createNavigator, []);
   const [location, navigator] = useNavigatorIntegration(tmaNavigator);
   const backButton = useBackButton();
@@ -126,10 +156,24 @@ export const App: FC = () => {
     .enable()
     .show();
 
+    const user = useMemo<{} | undefined>(() => {
+
+      if (!initData) {
+        return;
+      }
+
+      const {
+        user,
+      } = initData;
+      return { title: 'User', value: user ? getUser(user) : null };
+
+    }, [initData]);
+
   return (
     <Router location={location} navigator={navigator}>
       <>
         <SetupTeam />
+        <UserInfo title={user?.title} value={user?.value} />
         <ActionsGrid />
         {/* <MainMenu />
         <TestForm /> */}

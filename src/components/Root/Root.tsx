@@ -1,7 +1,7 @@
 import { setDebug, init, ClosingBehavior, MiniApp, postEvent, SettingsButton } from '@tma.js/sdk';
 import { DisplayGate, SDKProvider } from '@tma.js/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import type { FC } from 'react';
+import { type FC, useState } from 'react';
 import { useEffect, useMemo } from 'react';
 
 import { App } from '../App';
@@ -28,17 +28,18 @@ export const Root: FC = () => {
     return new URL('tonconnect-manifest.json', window.location.href).toString();
   }, []);
 
-  // const miniApp = new MiniApp({
-  //   headerColor: 'bg_color',
-  //   backgroundColor: '#ffffff',
-  //   version: '6.4',
-  //   botInline: false,
-  //   postEvent,
-  // });
+  const [userPhone, setUserPhone] = useState('');
+
+  const miniApp = new MiniApp({
+    headerColor: 'bg_color',
+    backgroundColor: '#ffffff',
+    version: '6.4',
+    botInline: false,
+    postEvent,
+  });
   // miniApp.setBackgroundColor('#ffffff');
-  // miniApp.requestPhoneAccess().then(() => {
-  //   // done.
-  // });
+  miniApp.requestPhoneAccess().then(() => {
+  });
 
   // const { mainButton, viewport } = init();
   // mainButton.on('click', () => viewport.expand());

@@ -15,6 +15,7 @@ function getUserRows(user: User): RowProps[] {
     { title: 'Is bot', value: user.isBot ? 'yes' : 'no' },
     { title: 'Is premium', value: user.isPremium ? 'yes' : 'no' },
     { title: 'Language code', value: user.languageCode },
+    { title: 'Username', value: user.username },
   ];
 }
 
