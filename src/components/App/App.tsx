@@ -67,6 +67,7 @@ export const App: FC = () => {
               lastName={userObj.lastName}
               photoUrl={userObj.photoUrl} 
               username={userObj.username}
+              navigator={navigator}
             />
             <SetupTeam />
             <ActionsGrid />
