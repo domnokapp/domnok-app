@@ -81,7 +81,7 @@ import {
                     គ្រប់គ្រងការលក់
                 </Anchor>
             </Group>
-            <SimpleGrid cols={3} mt="md">
+            <SimpleGrid cols={3} mt={7}>
                 {orders}
             </SimpleGrid>
 
@@ -91,7 +91,7 @@ import {
                     គ្រប់គ្រងការផលិតផល
                 </Anchor>
             </Group>
-            <SimpleGrid cols={3} mt="md">
+            <SimpleGrid cols={3} mt={7}>
                 {catalogs}
             </SimpleGrid>
 
