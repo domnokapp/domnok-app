@@ -122,17 +122,12 @@ function getUser(user: User) {
   ];
 }
 
-type UserProps = {
-  title: string;
-  value: string;
-};
-
-function UserInfo(user: UserProps) {
+function UserInfo(user: User) {
   return (
     <>
     <Paper>
-      <Text fz="lg">{user.title}</Text>
-      <Text fz="sm">{user.value}</Text>
+      <Text fz="lg">{user.id}</Text>
+      <Text fz="sm">{user.username}</Text>
     </Paper>
     </>
   );
@@ -156,7 +151,7 @@ export const App: FC = () => {
     .enable()
     .show();
 
-    const user = useMemo<{} | undefined>(() => {
+    const user = useMemo<User | undefined>(() => {
 
       if (!initData) {
         return;
@@ -165,7 +160,7 @@ export const App: FC = () => {
       const {
         user,
       } = initData;
-      return { title: 'User', value: user ? getUser(user) : null };
+      return user;
 
     }, [initData]);
 
