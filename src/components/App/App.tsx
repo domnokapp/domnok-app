@@ -62,6 +62,7 @@ export const App: FC = () => {
         { userObj && constact.length != undefined
           ? (
             <>
+            <Inner />
             <UserCard
               firstName={userObj.firstName}
               lastName={userObj.lastName}
