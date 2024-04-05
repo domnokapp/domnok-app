@@ -16,35 +16,32 @@ import {
     IconExchange,
   } from '@tabler/icons-react';
   import classes from './ActionsGrid.module.css';
+import { Link } from '../Link';
 
   const orderMenus = [
-    { title: 'បង្កើតថ្មី', icon: IconScan, color: 'violet' },
-    { title: 'បញ្ជីលក់', icon: IconFileDollar, color: 'indigo' },
-    { title: 'របាយការណ៍', icon: IconChartHistogram, color: 'blue' },
+    { title: 'បង្កើតថ្មី', icon: IconScan, color: 'violet', path: "/manage-product" },
+    { title: 'បញ្ជីលក់', icon: IconFileDollar, color: 'indigo', path: "/manage-product" },
+    { title: 'របាយការណ៍', icon: IconChartHistogram, color: 'blue', path: "/manage-product" },
   ];
 
   const catalogMenus = [
-    { title: 'ផលិតផល', icon: IconStack, color: 'violet' },
-    { title: 'ប្រភេទ', icon: IconTags, color: 'indigo' },
-    { title: 'ខ្នាត (ឯកតា)', icon: IconExchange, color: 'blue' },
+    { title: 'ផលិតផល', icon: IconStack, color: 'violet', path: "/manage-product" },
+    { title: 'ប្រភេទ', icon: IconTags, color: 'indigo', path: "/manage-product" },
+    { title: 'ខ្នាត (ឯកតា)', icon: IconExchange, color: 'blue', path: "/manage-product" },
   ];
   
   export function ActionsGrid() {
     const theme = useMantineTheme();
   
     const orders = orderMenus.map((item) => (
-      <UnstyledButton style={{
-        '--radius': '0.5rem',
-        borderRadius: 'var(--radius)',
-        boxShadow: '0.5rem',
-        border: 1,
-        borderColor: 'gray',
-      }} key={item.title} className={classes.item} py={10} onClick={ () => alert(`Hello, ${item.title}`) }>
-        <item.icon color={theme.colors[item.color][6]} size="2rem" />
-        <Text size="md" mt={7}>
-          {item.title}
-        </Text>
-      </UnstyledButton>
+        <Link to={item.path}>
+            <UnstyledButton key={item.title} className={classes.item} py={10} onClick={ () => alert(`Hello, ${item.title}`) }>
+                <item.icon color={theme.colors[item.color][6]} size="2rem" />
+                <Text size="md" mt={7}>
+                {item.title}
+                </Text>
+            </UnstyledButton>
+      </Link>
     ));
 
     const catalogs = catalogMenus.map((item) => (

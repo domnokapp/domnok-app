@@ -1,11 +1,9 @@
 import './IndexPage.css';
 
 import type { FC } from 'react';
-
 import { Link } from "../../components/Link";
 import { Page } from "../../components/Page";
 import { routes } from "../../navigation/routes.ts";
-import { useNavigate } from "react-router-dom";
 
 export const IndexPage: FC = () => {
   return (
