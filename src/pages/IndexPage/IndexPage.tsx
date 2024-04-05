@@ -9,7 +9,6 @@ import { UserCard } from '../../components/Cards/UserCard.tsx';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createNavigator, useNavigatorIntegration, useBackButtonIntegration } from '@tma.js/react-router-integration';
-import { Router } from 'react-router-dom';
 
 export const IndexPage: FC = () => {
   const tmaNavigator = useMemo(createNavigator, []);
@@ -43,7 +42,6 @@ export const IndexPage: FC = () => {
       { userObj && constact.length != undefined
           ? (
             <>
-            <Router location={location} navigator={navigator}>
               <UserCard
                 firstName={userObj.firstName}
                 lastName={userObj.lastName}
@@ -52,7 +50,6 @@ export const IndexPage: FC = () => {
                 navigator={navigator}
               />
               <SetupTeam />
-            </Router>
             {/* <ActionsGrid /> */}
             </>
           ) 
