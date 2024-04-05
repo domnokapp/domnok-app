@@ -110,15 +110,6 @@ const TestForm: FC = () => (
   </Section>
 );
 
-const UserInfo: FC = (user: User) => {
-  return (
-    <Paper>
-      <Text fz="lg">{user.id} A</Text>
-      <Text fz="sm">{user.username} B</Text>
-    </Paper>
-  );
-};
-
 export const App: FC = () => {
   const initData = useInitData();
   const tmaNavigator = useMemo(createNavigator, []);
@@ -154,8 +145,14 @@ export const App: FC = () => {
           ? (
             <>
             <SetupTeam />
-            <UserInfo user={userObj} />
             <ActionsGrid />
+
+            <Paper bg="white" p={10}>
+              <Text>ID: {userObj.id}</Text>
+              <Text>First Name: {userObj.firstName}</Text>
+              <Text>Last Name: {userObj.lastName}</Text>
+              <Text>Userame: {userObj.username}</Text>
+            </Paper>
             </>
           ) 
           : <i>Application was launched with missing init data</i> }
