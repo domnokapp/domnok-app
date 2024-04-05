@@ -129,8 +129,8 @@ export const App: FC = () => {
     <Router location={location} navigator={navigator}>
       <>
         <ActionsGrid />
-        <MainMenu />
-        <TestForm />
+        {/* <MainMenu />
+        <TestForm /> */}
       </>
     </Router>
   );
