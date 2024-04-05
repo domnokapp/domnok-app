@@ -2,7 +2,7 @@ import { Button, Paper, Text, Group, CloseButton } from '@mantine/core';
 
 export function SetupTeam() {
     return (
-        <Paper withBorder p="lg" radius="md" shadow="md" m="sm" variant="outline">
+        <Paper withBorder p="lg" radius="md" shadow="md" mr="sm" mt="sm" ml="sm" mb={0} variant="outline">
             <Group justify="space-between" mb="xs">
                 <Text fw={500} size="lg">
                     បង្កើតហាងថ្មី
