@@ -4,3 +4,11 @@ export type UserContact = {
     lastName: string;
     phoneNumber: string;
 }
+
+export type UserModel = {
+    id: number | undefined;
+    code: string | undefined;
+    name: string | undefined;
+    teamName: string | undefined;
+    photoUrl: string | undefined;
+};

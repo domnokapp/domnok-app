@@ -2,16 +2,9 @@ import { UnstyledButton, Group, Avatar, Text, rem } from '@mantine/core';
 import { IconChevronRight } from '@tabler/icons-react';
 import classes from './UserButton.module.css';
 import { Link } from '../Link';
+import { UserModel } from '../Type/type';
 
-type BannerInformationProps = {
-    id: number | undefined;
-    code: string | undefined;
-    name: string | undefined;
-    teamName: string | undefined;
-    photoUrl: string | undefined;
-};
-
-export function BannerInformationCard({code, name, photoUrl, teamName}: BannerInformationProps) {
+export function BannerInformationCard({code, name, photoUrl, teamName}: UserModel) {
   return (
     <UnstyledButton className={classes.user}>
         <Link to="/manage-product">

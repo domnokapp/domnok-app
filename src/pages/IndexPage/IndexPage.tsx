@@ -9,15 +9,9 @@ import { UserCard } from '../../components/Cards/UserCard.tsx';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BannerInformationCard } from '../../components/Cards/BannerInformationCard.tsx';
+import { UserModel } from '../../components/Type/type.tsx';
 const BASE_URL = "https://app.domnok.com/api/v1";
 const ROUT_CONNECT_TELEGRAM_API = "/user/connect-tg-id";
-
-type apiRequest = {
-  name: string | undefined;
-  email: string | undefined;
-  phone: string | undefined;
-  tg_connect_id: number | undefined;
-};
 
 async function connectAPI(params: any) {
   const connect = await axios.post(
@@ -48,14 +42,20 @@ export const IndexPage: FC = () => {
       return user;
     }, [initData]);
 
-    const apiUser = useMemo(async() => {
+    const apiUser = useMemo<any>(async() => {
         const user = await AsyncStorage.getItem("UserLogin");
         if ( user != null ) {
           return JSON.parse(user).data.user;
         }
+
+        return null;
     }, []);
 
     useEffect(() => {
+      /**
+       * Create a new user
+       * and default team
+       */
       if (apiUser != null) {
         connectAPI({
           name: `${userObj?.lastName} ${userObj?.firstName}`,
@@ -66,27 +66,19 @@ export const IndexPage: FC = () => {
       }
     }, []);
 
-    console.log("User", apiUser);
+    console.log("User", apiUser.name);
 
   return (
     <Page title="Dashboard">
       { apiUser
           ? (
             <>
-              {/* <UserCard
-                id={userObj.id}
-                firstName={userObj.firstName}
-                lastName={userObj.lastName}
-                photoUrl={userObj.photoUrl} 
-                username={userObj.username}
-                phoneNumber=""
-              /> */}
               <BannerInformationCard
-                id={apiUser?.id}
-                code={apiUser?.code}
-                name={apiUser?.name}
-                teamName={apiUser?.name}
-                photoUrl={apiUser?.name}
+                id={apiUser.id}
+                code={apiUser.code}
+                name={apiUser.name}
+                teamName={apiUser.name}
+                photoUrl={apiUser.name}
               />
               <SetupTeam />
               <ActionsGrid />
