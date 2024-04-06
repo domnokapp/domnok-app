@@ -66,7 +66,7 @@ export const IndexPage: FC = () => {
       }
     }, []);
 
-    console.log("User", apiUser.json());
+    console.log("User", apiUser?.name);
 
   return (
     <Page title="Dashboard">
