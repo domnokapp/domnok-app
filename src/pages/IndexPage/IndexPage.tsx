@@ -49,6 +49,16 @@ export const IndexPage: FC = () => {
 
   }, [initData]);
 
+  const apiUser = useMemo(async() => {
+      const user = await AsyncStorage.getItem("UserLogin");
+
+      if ( user != null ) {
+        return JSON.parse(user);
+      }
+  }, []);
+
+  console.log("User", apiUser);
+
     useEffect(() => {
       connectAPI({
         name: userObj?.firstName,
@@ -57,10 +67,6 @@ export const IndexPage: FC = () => {
         tg_connect_id: userObj?.id,
       });
     }, []);
-
-    // const apiUser = useMemo(async() => {
-
-    // }, []);
 
   return (
     <Page title="Dashboard">
