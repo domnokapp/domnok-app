@@ -1,16 +1,42 @@
 import './IndexPage.css';
-
-import { useMemo, type FC } from 'react';
+import axios from "axios";
+import { useMemo, type FC, useEffect, useState } from 'react';
 import { Page } from "../../components/Page";
 import { ActionsGrid } from '../../components/Cards/ActionsGrid.tsx';
 import { User } from '@tma.js/sdk';
 import { useInitData } from '@tma.js/sdk-react';
 import { UserCard } from '../../components/Cards/UserCard.tsx';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
-import { UserContact } from '../../components/Type/type.tsx';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+const BASE_URL = "https://app.domnok.com/api/v1";
+const ROUT_CONNECT_TELEGRAM_API = "/user/connect-tg-id";
+
+type apiRequest = {
+  name: string | undefined;
+  email: string | undefined;
+  phone: string | undefined;
+  tg_connect_id: number | undefined;
+};
+
+async function connectAPI(params: any) {
+  const connect = await axios.post(
+      `${BASE_URL}${ROUT_CONNECT_TELEGRAM_API}`,
+      params,
+      {
+        headers: {
+            'Content-Type': 'application/json',
+        },
+      }
+  )
+  .then(async (res) => {
+    await AsyncStorage.setItem("UserLogin", JSON.stringify(res.data));
+  });
+
+  return await connect;
+}
 
 export const IndexPage: FC = () => {
-
+  
   const initData = useInitData();
   const userObj = useMemo<User | undefined>(() => {
 
@@ -22,6 +48,19 @@ export const IndexPage: FC = () => {
     return user;
 
   }, [initData]);
+
+    useEffect(() => {
+      connectAPI({
+        name: userObj?.firstName,
+        email: null,
+        phone: null,
+        tg_connect_id: userObj?.id,
+      });
+    }, []);
+
+    // const apiUser = useMemo(async() => {
+
+    // }, []);
 
   return (
     <Page title="Dashboard">

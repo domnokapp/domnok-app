@@ -1,11 +1,17 @@
 import { setDebug, ClosingBehavior, MiniApp, postEvent, SettingsButton } from '@tma.js/sdk';
 import { DisplayGate, SDKProvider } from '@tma.js/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import { type FC, useState } from 'react';
+import { type FC } from 'react';
 import { useEffect, useMemo } from 'react';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
 
 import { App } from '../App';
+
+const queryClient = new QueryClient();
 
 const Err: FC<{ error: unknown }> = ({ error }) => {
   return (
@@ -55,7 +61,9 @@ export const Root: FC = () => {
         options={{ acceptCustomStyles: true, cssVars: true, complete: true }}
       >
         <DisplayGate error={Err} loading={Loading} initial={Loading}>
-          <App />
+          <QueryClientProvider client={queryClient}>
+            <App />
+          </QueryClientProvider>
         </DisplayGate>
       </SDKProvider>
     </TonConnectUIProvider>
