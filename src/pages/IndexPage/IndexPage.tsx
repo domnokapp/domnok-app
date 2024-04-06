@@ -51,7 +51,7 @@ export const IndexPage: FC = () => {
     const apiUser = useMemo(async() => {
         const user = await AsyncStorage.getItem("UserLogin");
         if ( user != null ) {
-          return JSON.parse(user).data;
+          return JSON.parse(user).data.user;
         }
     }, []);
 
@@ -82,11 +82,11 @@ export const IndexPage: FC = () => {
                 phoneNumber=""
               /> */}
               <BannerInformationCard
-                id={apiUser?.user?.id}
-                code={apiUser?.user?.code}
-                name={apiUser?.user?.name}
-                teamName={apiUser?.user?.name}
-                photoUrl={apiUser?.user?.name}
+                id={apiUser?.id}
+                code={apiUser?.code}
+                name={apiUser?.name}
+                teamName={apiUser?.name}
+                photoUrl={apiUser?.name}
               />
               <SetupTeam />
               <ActionsGrid />
