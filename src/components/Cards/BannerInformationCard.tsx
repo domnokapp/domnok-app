@@ -28,7 +28,7 @@ export function BannerInformationCard({code, name, photoUrl, teamName}: BannerIn
                         #{name}[{code}]
                     </Text>
                 </div>
-                <IconChevronRight size="md" stroke={1.5} />
+                <IconChevronRight style={{width: rem(20), height: rem(20)}} stroke={1.5} />
             </Group>
         </Link>
     </UnstyledButton>
