@@ -4,6 +4,7 @@ import classes from './UserButton.module.css';
 import { Link } from '../Link';
 
 type UserProps = {
+    id: number | undefined;
     firstName: string | undefined;
     lastName: string | undefined;
     photoUrl: string | undefined;
@@ -11,7 +12,7 @@ type UserProps = {
     phoneNumber: string | undefined;
 };
 
-export function UserCard({firstName, lastName, photoUrl, username, phoneNumber}: UserProps) {
+export function UserCard({id, firstName, lastName, photoUrl, username, phoneNumber}: UserProps) {
   return (
     <UnstyledButton className={classes.user}>
         <Link to="/manage-product">
@@ -27,7 +28,7 @@ export function UserCard({firstName, lastName, photoUrl, username, phoneNumber}:
                     </Text>
 
                     <Text c="dimmed" size="xs">
-                        @{username} {phoneNumber}
+                        @{username} {id}
                     </Text>
                 </div>
 

@@ -29,6 +29,7 @@ export const IndexPage: FC = () => {
           ? (
             <>
               <UserCard
+                id={userObj.id}
                 firstName={userObj.firstName}
                 lastName={userObj.lastName}
                 photoUrl={userObj.photoUrl} 
