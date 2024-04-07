@@ -14,11 +14,11 @@ export function BannerInformationCard({code, name, photoUrl, teamName}: UserMode
                     radius="xl"
                 />
                 <div style={{ flex: 1 }}>
-                    <Text size="sm" fw={500}>
+                    <Text size="md" fw={500} lineClamp={1}>
                         {teamName}
                     </Text>
                     <Text c="dimmed" size="xs">
-                        #{name}[{code}]
+                        @{code}
                     </Text>
                 </div>
                 <IconChevronRight style={{width: rem(20), height: rem(20)}} stroke={1.5} />
