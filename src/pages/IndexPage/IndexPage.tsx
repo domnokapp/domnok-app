@@ -1,6 +1,6 @@
 import './IndexPage.css';
 import axios from "axios";
-import { useMemo, type FC, useEffect, useContext } from 'react';
+import { useMemo, type FC, useEffect, useContext, useState } from 'react';
 import { Page } from "../../components/Page";
 import { ActionsGrid } from '../../components/Cards/ActionsGrid.tsx';
 import { User } from '@tma.js/sdk';
@@ -11,6 +11,20 @@ import { BannerInformationCard } from '../../components/Cards/BannerInformationC
 import { apiRoutes } from '../../api/apiRoutes.tsx';
 import { BASE_URL } from '../../constants/constant.tsx';
 import { AuthContext } from '../../context/AuthContext.tsx';
+
+type UserProps = {
+  id: number;
+  name: string;
+  email?: string;
+  team_id: number;
+  created_at: string;
+  updated_at: string;
+};
+
+type ResponseProps = {
+  access_token: string;
+  user: UserProps;
+};
 
 async function connectAPI(params: any) {
   const connect = await axios.post(
@@ -31,6 +45,7 @@ async function connectAPI(params: any) {
 
 export const IndexPage: FC = () => {
     const initData = useInitData();
+    const [accessToken setAccessToken] = useState('');
     const userObj = useMemo<User | undefined>(() => {
 
       if (!initData) {
@@ -50,8 +65,14 @@ export const IndexPage: FC = () => {
         return null;
     }, []);
 
-    console.log("access_token", apiUser.access_token);
-    console.log("apiUser", apiUser);
+    /**
+     * Assign data
+     */
+    apiUser.then((res: any) => {
+      setAccessToken(res.access_token);
+    });
+
+    console.log("access_token", accessToken);
 
     useEffect(() => {
       if(apiUser != null) {
