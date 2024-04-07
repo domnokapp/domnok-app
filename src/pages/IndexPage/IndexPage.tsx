@@ -52,11 +52,12 @@ export const IndexPage: FC = () => {
 
     console.log("apiUser", apiUser);
 
-    const { userInfo, isLoading, connectID } = useContext<any>(AuthContext);
+    const { userInfo, connectID } = useContext<any>(AuthContext);
 
     useEffect(() => {
       /**
-       * Runnign to connect ID just just first time
+       * Runnign to connect ID 
+       * and just first time
        */
       connectID({
         name: `${userObj?.lastName} ${userObj?.firstName}`,
@@ -70,15 +71,15 @@ export const IndexPage: FC = () => {
 
   return (
     <Page title="Dashboard">
-      { isLoading && userInfo
+      { userInfo != undefined
           ? (
             <>
               <BannerInformationCard
-                id={userInfo?.user?.id}
-                code={userInfo?.user?.name}
-                name={userInfo?.user?.name}
-                teamName={userInfo?.user?.name}
-                photoUrl={userInfo?.user?.name}
+                id={userObj?.id}
+                code={userObj?.firstName}
+                name={userObj?.firstName}
+                teamName={userObj?.firstName}
+                photoUrl={userObj?.firstName}
               />
               <SetupTeam />
               <ActionsGrid />
