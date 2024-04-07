@@ -45,7 +45,7 @@ async function connectAPI(params: any) {
 
 export const IndexPage: FC = () => {
     const initData = useInitData();
-    const [accessToken setAccessToken] = useState('');
+    const [accessToken, setAccessToken] = useState('');
     const userObj = useMemo<User | undefined>(() => {
 
       if (!initData) {
