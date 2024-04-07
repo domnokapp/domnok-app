@@ -50,6 +50,8 @@ export const IndexPage: FC = () => {
         return null;
     }, []);
 
+    console.log("apiUser", apiUser);
+
     const { userInfo, isLoading, connectID } = useContext<any>(AuthContext);
 
     useEffect(() => {
