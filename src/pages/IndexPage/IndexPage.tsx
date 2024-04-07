@@ -73,13 +73,7 @@ export const IndexPage: FC = () => {
       { userInfo != undefined
           ? (
             <>
-              <BannerInformationCard
-                id={userObj?.id}
-                code={userObj?.firstName}
-                name={userObj?.firstName}
-                teamName={userObj?.firstName}
-                photoUrl={userObj?.firstName}
-              />
+              
               <SetupTeam />
               <ActionsGrid />
             </>
