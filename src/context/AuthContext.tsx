@@ -81,8 +81,8 @@ export const AuthProvider = ({ children = null }) => {
 
       userInfo = JSON.parse(userInfo);
 
-      console.log('accessToken', userInfo?.data?.access_token);
-      console.log('teamId', userInfo?.data?.user?.team_id);
+    //   console.log('accessToken', userInfo?.data?.access_token);
+    //   console.log('teamId', userInfo?.data?.user?.team_id);
 
       if (userInfo) {
         setUserInfo(userInfo);
