@@ -30,7 +30,6 @@ async function connectAPI(params: any) {
 }
 
 export const IndexPage: FC = () => {
-    const { userInfo, connectID } = useContext<any>(AuthContext);
     const initData = useInitData();
     const userObj = useMemo<User | undefined>(() => {
 
@@ -58,7 +57,7 @@ export const IndexPage: FC = () => {
        * Runnign to connect ID 
        * and just first time
        */
-      connectID({
+      connectAPI({
         name: `${userObj?.lastName} ${userObj?.firstName}`,
         email: null,
         phone: null,
@@ -66,14 +65,18 @@ export const IndexPage: FC = () => {
       });
     }, []);
 
-    console.log("userInfo", userInfo);
-
   return (
     <Page title="Dashboard">
-      { userInfo != undefined
+      { apiUser != undefined
           ? (
             <>
-              
+              <BannerInformationCard
+                id={userObj?.id}
+                code={userObj?.firstName}
+                name={userObj?.firstName}
+                teamName={userObj?.firstName}
+                photoUrl={userObj?.firstName}
+              />
               <SetupTeam />
               <ActionsGrid />
             </>
