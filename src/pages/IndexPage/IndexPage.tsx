@@ -64,6 +64,8 @@ export const IndexPage: FC = () => {
       });
     }, []);
 
+    console.log("userInfo", userInfo);
+
   return (
     <Page title="Dashboard">
       { isLoading && userInfo
