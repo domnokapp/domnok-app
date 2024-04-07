@@ -44,13 +44,14 @@ export const IndexPage: FC = () => {
     const apiUser = useMemo<any>(async() => {
         const user = await AsyncStorage.getItem("UserLogin");
         if ( user != null ) {
-          return JSON.parse(user).data.user;
+          return JSON.parse(user).data;
         }
 
         return null;
     }, []);
 
-    console.log("apiUser", apiUser);
+    console.log("apiUser", apiUser?.access_token);
+    console.log("apiUser", apiUser?.user);
 
     useEffect(() => {
       /**
