@@ -10,7 +10,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BannerInformationCard } from '../../components/Cards/BannerInformationCard.tsx';
 import { apiRoutes } from '../../api/apiRoutes.tsx';
 import { BASE_URL } from '../../constants/constant.tsx';
-import { AuthProviderProps } from '../../components/Type/type.tsx';
 import { AuthContext } from '../../context/AuthContext.tsx';
 
 async function connectAPI(params: any) {
@@ -51,10 +50,18 @@ export const IndexPage: FC = () => {
         return null;
     }, []);
 
-    const { userInfo, isLoading } = useContext<any>(AuthContext);
+    const { userInfo, isLoading, connectID } = useContext<any>(AuthContext);
 
     useEffect(() => {
-      
+      /**
+       * Runnign to connect ID just just first time
+       */
+      connectID({
+        name: `${userObj?.lastName} ${userObj?.firstName}`,
+        email: null,
+        phone: null,
+        tg_connect_id: userObj?.id,
+      });
     }, []);
 
   return (
