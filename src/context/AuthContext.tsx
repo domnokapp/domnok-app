@@ -14,6 +14,7 @@ export const AuthProvider = ({ children = null }) => {
   const [formError, setFormError] = useState({});
 
   const connectID = (params: any) => {
+    console.log("login");
     /**
      *
      */
@@ -75,14 +76,15 @@ export const AuthProvider = ({ children = null }) => {
 
   const isLoggedIn = async () => {
     try {
+        console.log("dddddssaa");
       setSplashLoading(true);
 
       let userInfo = await AsyncStorage.getItem("UserLogin");
 
       userInfo = JSON.parse(userInfo);
 
-    //   console.log('accessToken', userInfo?.data?.access_token);
-    //   console.log('teamId', userInfo?.data?.user?.team_id);
+      console.log('accessToken', userInfo?.data?.access_token);
+      console.log('teamId', userInfo?.data?.user?.team_id);
 
       if (userInfo) {
         setUserInfo(userInfo);
@@ -96,7 +98,9 @@ export const AuthProvider = ({ children = null }) => {
   };
 
   useEffect(() => {
+    console.log("aa");
     isLoggedIn();
+    console.log("dddd");
   }, []);
 
   return (

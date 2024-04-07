@@ -30,6 +30,7 @@ async function connectAPI(params: any) {
 }
 
 export const IndexPage: FC = () => {
+    const { userInfo, connectID } = useContext<any>(AuthContext);
     const initData = useInitData();
     const userObj = useMemo<User | undefined>(() => {
 
@@ -51,8 +52,6 @@ export const IndexPage: FC = () => {
     }, []);
 
     console.log("apiUser", apiUser);
-
-    const { userInfo, connectID } = useContext<any>(AuthContext);
 
     useEffect(() => {
       /**
