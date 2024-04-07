@@ -46,6 +46,10 @@ async function connectAPI(params: any) {
 export const IndexPage: FC = () => {
     const initData = useInitData();
     const [accessToken, setAccessToken] = useState('');
+    const [id, setId] = useState<number|undefined>();
+    const [code, setCode] = useState('');
+    const [name, setName] = useState('');
+    const [teamName, setTeamName] = useState('');
     const userObj = useMemo<User | undefined>(() => {
 
       if (!initData) {
@@ -70,6 +74,10 @@ export const IndexPage: FC = () => {
      */
     apiUser.then((res: any) => {
       setAccessToken(res.access_token);
+      setTeamName(res.user.team_name);
+      setName(res.user.name);
+      setCode(res.user.code);
+      setId(res.user.id);
     });
 
     console.log("access_token", accessToken);
@@ -95,11 +103,11 @@ export const IndexPage: FC = () => {
           ? (
             <>
               <BannerInformationCard
-                id={userObj?.id}
-                code={userObj?.firstName}
-                name={userObj?.firstName}
-                teamName={userObj?.firstName}
-                photoUrl={userObj?.firstName}
+                id={id}
+                code={code}
+                name={name}
+                teamName={teamName}
+                photoUrl=""
               />
               <SetupTeam />
               <ActionsGrid />
