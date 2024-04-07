@@ -50,20 +50,22 @@ export const IndexPage: FC = () => {
         return null;
     }, []);
 
-    console.log("apiUser", apiUser?.access_token);
-    console.log("apiUser", apiUser?.user);
+    console.log("access_token", apiUser.access_token);
+    console.log("apiUser", apiUser);
 
     useEffect(() => {
-      /**
-       * Runnign to connect ID 
-       * and just first time
-       */
-      connectAPI({
-        name: `${userObj?.lastName} ${userObj?.firstName}`,
-        email: null,
-        phone: null,
-        tg_connect_id: userObj?.id,
-      });
+      if(apiUser != null) {
+        /**
+         * Runnign to connect ID 
+         * and just first time
+         */
+        connectAPI({
+          name: `${userObj?.lastName} ${userObj?.firstName}`,
+          email: null,
+          phone: null,
+          tg_connect_id: userObj?.id,
+        });
+      }
     }, []);
 
   return (
