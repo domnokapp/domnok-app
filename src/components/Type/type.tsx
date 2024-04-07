@@ -12,3 +12,16 @@ export type UserModel = {
     teamName: string | undefined;
     photoUrl: string | undefined;
 };
+
+export type UserProps = {
+    id: number;
+    name: string;
+    teamId: string;
+    createdAt: string;
+    updatedAt: string;
+  }
+  
+export type AuthProviderProps = {
+    accessToken?: string;
+    user: UserProps;
+  }

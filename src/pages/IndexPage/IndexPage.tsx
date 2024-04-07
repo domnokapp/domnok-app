@@ -1,21 +1,21 @@
 import './IndexPage.css';
 import axios from "axios";
-import { useMemo, type FC, useEffect, useState } from 'react';
+import { useMemo, type FC, useEffect, useContext } from 'react';
 import { Page } from "../../components/Page";
 import { ActionsGrid } from '../../components/Cards/ActionsGrid.tsx';
 import { User } from '@tma.js/sdk';
 import { useInitData } from '@tma.js/sdk-react';
-import { UserCard } from '../../components/Cards/UserCard.tsx';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BannerInformationCard } from '../../components/Cards/BannerInformationCard.tsx';
-import { UserModel } from '../../components/Type/type.tsx';
-const BASE_URL = "https://app.domnok.com/api/v1";
-const ROUT_CONNECT_TELEGRAM_API = "/user/connect-tg-id";
+import { apiRoutes } from '../../api/apiRoutes.tsx';
+import { BASE_URL } from '../../constants/constant.tsx';
+import { AuthProviderProps } from '../../components/Type/type.tsx';
+import { AuthContext } from '../../context/AuthContext.tsx';
 
 async function connectAPI(params: any) {
   const connect = await axios.post(
-      `${BASE_URL}${ROUT_CONNECT_TELEGRAM_API}`,
+      `${BASE_URL}${apiRoutes.useTelegramIDConnect}`,
       params,
       {
         headers: {
@@ -51,34 +51,23 @@ export const IndexPage: FC = () => {
         return null;
     }, []);
 
-    useEffect(() => {
-      /**
-       * Create a new user
-       * and default team
-       */
-      if (apiUser != null) {
-        connectAPI({
-          name: `${userObj?.lastName} ${userObj?.firstName}`,
-          email: null,
-          phone: null,
-          tg_connect_id: userObj?.id,
-        });
-      }
-    }, []);
+    const { userInfo, isLoading } = useContext<any>(AuthContext);
 
-    console.log("User", apiUser?.name);
+    useEffect(() => {
+      
+    }, []);
 
   return (
     <Page title="Dashboard">
-      { apiUser
+      { isLoading && userInfo
           ? (
             <>
               <BannerInformationCard
-                id={apiUser.id}
-                code={apiUser.code}
-                name={apiUser.name}
-                teamName={apiUser.name}
-                photoUrl={apiUser.name}
+                id={userInfo?.user?.id}
+                code={userInfo?.user?.name}
+                name={userInfo?.user?.name}
+                teamName={userInfo?.user?.name}
+                photoUrl={userInfo?.user?.name}
               />
               <SetupTeam />
               <ActionsGrid />

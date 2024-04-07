@@ -1,0 +1,1 @@
+export const BASE_URL = "https://app.domnok.com/api/v1";
