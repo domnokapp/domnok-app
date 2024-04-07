@@ -83,7 +83,6 @@ export const IndexPage: FC = () => {
     console.log("access_token", accessToken);
 
     useEffect(() => {
-      if(apiUser != null) {
         /**
          * Runnign to connect ID 
          * and just first time
@@ -94,7 +93,6 @@ export const IndexPage: FC = () => {
           phone: null,
           tg_connect_id: userObj?.id,
         });
-      }
     }, []);
 
   return (
