@@ -7,7 +7,7 @@ export const AuthContext = createContext({});
 
 
 export const AuthProvider = ({ children = null }) => {
-    
+
   const [userInfo, setUserInfo] = useState<AuthProviderProps[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [splashLoading, setSplashLoading] = useState(false);
@@ -31,6 +31,7 @@ export const AuthProvider = ({ children = null }) => {
       },
       body: JSON.stringify(params),
     }).then((data) => {
+        console.log("Data", data);
       /**
        *
        */
@@ -67,6 +68,8 @@ export const AuthProvider = ({ children = null }) => {
           setIsLoading(false);
         });
       }
+    }).catch((err) => {
+        console.log("Error", err);
     });
   };
 
