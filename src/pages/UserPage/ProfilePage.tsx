@@ -1,3 +1,4 @@
+import '@xelene/tgui/dist/styles.css';
 import '@mantine/core/styles/Input.css';
 import type { FC } from 'react';
 import { Typography } from 'antd';
