@@ -7,7 +7,7 @@ import { UserModel } from '../Type/type';
 export function BannerInformationCard({code, photoUrl, teamName}: UserModel) {
   return (
     <UnstyledButton className={classes.user}>
-        <Link to="/manage-product">
+        <Link to="/profile-page">
             <Group>
                 <Avatar
                     src={ photoUrl }
