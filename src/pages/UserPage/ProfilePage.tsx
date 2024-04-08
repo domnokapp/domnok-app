@@ -1,3 +1,4 @@
+import '@mantine/core/styles/Input.css';
 import type { FC } from 'react';
 import { Typography } from 'antd';
 import classes from './UserPage.module.css';
