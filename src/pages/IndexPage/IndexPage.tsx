@@ -95,6 +95,8 @@ export const IndexPage: FC = () => {
         });
     }, []);
 
+  console.log("userObj.photoUrl", userObj?.photoUrl);
+
   return (
     <Page title="Dashboard">
       { apiUser != undefined
