@@ -80,8 +80,6 @@ export const IndexPage: FC = () => {
       setId(res.user.id);
     });
 
-    console.log("access_token", accessToken);
-
     useEffect(() => {
         /**
          * Runnign to connect ID 
@@ -94,8 +92,6 @@ export const IndexPage: FC = () => {
           tg_connect_id: userObj?.id,
         });
     }, []);
-
-  console.log("userObj.photoUrl", userObj?.photoUrl);
 
   return (
     <Page title="Dashboard">
