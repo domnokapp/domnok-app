@@ -34,8 +34,7 @@ export const ProfilePage: FC = () => {
         <Typography.Title level={3}>Profile Page</Typography.Title>
 
         <Input 
-          name='name'
-          title='គោត្តនាមនិងនាម'
+          header='គោត្តនាមនិងនាម'
           placeholder='បញ្ចូលឈ្មោះពេញរបស់អ្នក'
           style={{padding: 0, margin: 0}}
           value={name}
