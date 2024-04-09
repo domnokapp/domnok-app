@@ -40,7 +40,7 @@ export const ProfilePage: FC = () => {
           value={name}
           onChange={e => setName(e.target.value)}
           after={<Tappable Component="div" style={{display: 'flex'}} onClick={() => setName('')}>
-            <IconX style={{width: rem(10), height: rem(10)}} />
+            <IconX style={{width: rem(15), height: rem(15)}} />
           </Tappable>} />
 
         <TextInput
