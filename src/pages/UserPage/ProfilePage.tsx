@@ -4,11 +4,12 @@ import type { FC } from 'react';
 import { Typography } from 'antd';
 import classes from './UserPage.module.css';
 import { useState } from 'react';
-import { TextInput, PasswordInput, Tooltip, Center, Text, rem } from '@mantine/core';
+import { TextInput, PasswordInput, Tooltip, Center, Text, rem, useMantineTheme } from '@mantine/core';
 import { Page } from '../../components/Page';
 import { IconInfoCircle } from '@tabler/icons-react';
 
 export const ProfilePage: FC = () => {
+  const theme = useMantineTheme();
   const [name, setName] = useState('');
   const [categoryId, setCategoryId] = useState('');
 
@@ -33,6 +34,7 @@ export const ProfilePage: FC = () => {
         <Typography.Title level={3}>Profile Page</Typography.Title>
 
         <TextInput
+          color={theme.colors['cyan'][6]}
           rightSection={rightSection}
           label="គោត្តនាមនិងនាម"
           placeholder="បញ្ចូលឈ្មោះពេញរបស់អ្នក"
@@ -43,6 +45,7 @@ export const ProfilePage: FC = () => {
 
         <TextInput
           rightSection={rightSection}
+          color={theme.colors['cyan'][6]}
           label="គោត្តនាមនិងនាម"
           placeholder="បញ្ចូលឈ្មោះពេញរបស់អ្នក"
           value={categoryId}
