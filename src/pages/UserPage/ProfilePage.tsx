@@ -30,13 +30,11 @@ export const ProfilePage: FC = () => {
 
   return (
     <>
-      <Page title='Profile Page'>
         <Typography.Title level={3}>Profile Page</Typography.Title>
     
         <Input 
           header='គោត្តនាមនិងនាម'
           placeholder='បញ្ចូលឈ្មោះពេញរបស់អ្នក'
-          style={{padding: 0, margin: 0}}
           value={name}
           onChange={e => setName(e.target.value)}
           after={<Tappable Component="div" style={{display: 'flex'}} onClick={() => setName('')}>
@@ -52,8 +50,6 @@ export const ProfilePage: FC = () => {
           onChange={(event) => setCategoryId(event.currentTarget.value)}
           mt="md"
         />
-
-      </Page>
     </>
   );
 };
