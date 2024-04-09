@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { TextInput, Tooltip, Center, Text, rem, useMantineTheme } from '@mantine/core';
 import { Page } from '../../components/Page';
 import { IconClearAll, IconInfoCircle } from '@tabler/icons-react';
-import { Input, Tappable } from '@xelene/tgui';
+import { Input, List, Tappable } from '@xelene/tgui';
 
 export const ProfilePage: FC = () => {
   const theme = useMantineTheme();
@@ -33,6 +33,12 @@ export const ProfilePage: FC = () => {
       <Page title='Profile Page'>
         <Typography.Title level={3}>Profile Page</Typography.Title>
 
+        <List style={{
+      background: 'var(--tgui--secondary_bg_color)',
+      width: 500
+    }}>
+
+    
         <Input 
           header='គោត្តនាមនិងនាម'
           placeholder='បញ្ចូលឈ្មោះពេញរបស់អ្នក'
@@ -52,6 +58,7 @@ export const ProfilePage: FC = () => {
           onChange={(event) => setCategoryId(event.currentTarget.value)}
           mt="md"
         />
+        </List>
         
       </Page>
     </>
