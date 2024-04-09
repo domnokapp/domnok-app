@@ -14,6 +14,8 @@ import {
     IconStack,
     IconTags,
     IconExchange,
+    IconTruckLoading,
+    IconServerBolt,
   } from '@tabler/icons-react';
   import classes from './ActionsGrid.module.css';
 import { Link } from '../Link';
@@ -28,6 +30,11 @@ import { Link } from '../Link';
     { title: 'ផលិតផល', icon: IconStack, color: 'violet', path: "/manage-product" },
     { title: 'ប្រភេទ', icon: IconTags, color: 'indigo', path: "/manage-product" },
     { title: 'ខ្នាត (ឯកតា)', icon: IconExchange, color: 'blue', path: "/manage-product" },
+  ];
+
+  const inventoryMenus = [
+    { title: 'បញ្ចូលឃ្លាំង', icon: IconTruckLoading, color: 'violet', path: "/manage-product" },
+    { title: 'របាយការណ័', icon: IconServerBolt, color: 'indigo', path: "/manage-product" },
   ];
   
   export function ActionsGrid() {
@@ -52,6 +59,15 @@ import { Link } from '../Link';
           </Text>
         </UnstyledButton>
       ));
+
+    const inventories = inventoryMenus.map((item) => (
+      <UnstyledButton key={item.title} className={classes.item} py={10} onClick={ () => alert(`Hello, ${item.title}`) }>
+        <item.icon color={theme.colors[item.color][6]} size="2rem" />
+        <Text size="md" mt={7}>
+          {item.title}
+        </Text>
+      </UnstyledButton>
+    ));
   
     return (
         <>
@@ -82,6 +98,9 @@ import { Link } from '../Link';
                     គ្រប់គ្រងការស្តុក
                 </Anchor>
             </Group>
+            <SimpleGrid cols={3} mt={7}>
+                {inventories}
+            </SimpleGrid>
         </Card>
         </>
     );
