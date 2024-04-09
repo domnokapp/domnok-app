@@ -34,7 +34,8 @@ export const ProfilePage: FC = () => {
         <Typography.Title level={3}>Profile Page</Typography.Title>
 
         <Input 
-          name='គោត្តនាមនិងនាម'
+          name='name'
+          title='គោត្តនាមនិងនាម'
           placeholder='បញ្ចូលឈ្មោះពេញរបស់អ្នក'
           value={name}
           onChange={(event) => setName(event.currentTarget.value)} />
@@ -44,7 +45,7 @@ export const ProfilePage: FC = () => {
           color={theme.colors['cyan'][6]}
           label="គោត្តនាមនិងនាម"
           placeholder="បញ្ចូលឈ្មោះពេញរបស់អ្នក"
-          value={categoryId}
+          value={name}
           onChange={(event) => setCategoryId(event.currentTarget.value)}
           mt="md"
         />
