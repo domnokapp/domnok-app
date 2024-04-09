@@ -5,8 +5,8 @@ import { Typography } from 'antd';
 import { useState } from 'react';
 import { TextInput, Tooltip, Center, Text, rem, useMantineTheme } from '@mantine/core';
 import { Page } from '../../components/Page';
-import { IconInfoCircle } from '@tabler/icons-react';
-import { Input } from '@xelene/tgui';
+import { IconClearAll, IconInfoCircle } from '@tabler/icons-react';
+import { Input, Tappable } from '@xelene/tgui';
 
 export const ProfilePage: FC = () => {
   const theme = useMantineTheme();
@@ -38,7 +38,10 @@ export const ProfilePage: FC = () => {
           placeholder='បញ្ចូលឈ្មោះពេញរបស់អ្នក'
           style={{padding: 0, margin: 0}}
           value={name}
-          onChange={(event) => setName(event.currentTarget.value)} />
+          onChange={e => setName(e.target.value)}
+          after={<Tappable Component="div" style={{display: 'flex'}} onClick={() => setName('')}>
+            <IconClearAll />
+          </Tappable>} />
 
         <TextInput
           rightSection={rightSection}
