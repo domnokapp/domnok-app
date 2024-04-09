@@ -13,27 +13,12 @@ export const ProfilePage: FC = () => {
   const [name, setName] = useState('');
   const [categoryId, setCategoryId] = useState('');
 
-  const rightSection = (
-    <Tooltip
-      label="We store your data securely"
-      position="top-end"
-      withArrow
-      transitionProps={{ transition: 'pop-bottom-right' }}
-    >
-      <Text component="div" c="dimmed" style={{ cursor: 'help' }}>
-        <Center>
-          <IconInfoCircle style={{ width: rem(18), height: rem(18) }} stroke={1.5} />
-        </Center>
-      </Text>
-    </Tooltip>
-  );
-
   return (
     <>
           <List style={{
       background: 'var(--tgui--secondary_bg_color)',
       padding: 0,
-      marginTop: 0,
+      margin: 0,
     }}>
       <Typography.Title level={3}>Profile Page</Typography.Title>
         <Input header="Input" placeholder="I am usual input, just leave me alone" />
