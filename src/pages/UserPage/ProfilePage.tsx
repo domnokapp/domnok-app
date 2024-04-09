@@ -2,11 +2,11 @@ import '@xelene/tgui/dist/styles.css';
 import '@mantine/core/styles/Input.css';
 import type { FC } from 'react';
 import { Typography } from 'antd';
-import classes from './UserPage.module.css';
 import { useState } from 'react';
-import { TextInput, PasswordInput, Tooltip, Center, Text, rem, useMantineTheme } from '@mantine/core';
+import { TextInput, Tooltip, Center, Text, rem, useMantineTheme } from '@mantine/core';
 import { Page } from '../../components/Page';
 import { IconInfoCircle } from '@tabler/icons-react';
+import { Input } from '@xelene/tgui';
 
 export const ProfilePage: FC = () => {
   const theme = useMantineTheme();
@@ -33,15 +33,11 @@ export const ProfilePage: FC = () => {
       <Page title='Profile Page'>
         <Typography.Title level={3}>Profile Page</Typography.Title>
 
-        <TextInput
-          color={theme.colors['cyan'][6]}
-          rightSection={rightSection}
-          label="គោត្តនាមនិងនាម"
-          placeholder="បញ្ចូលឈ្មោះពេញរបស់អ្នក"
+        <Input 
+          name='គោត្តនាមនិងនាម'
+          placeholder='បញ្ចូលឈ្មោះពេញរបស់អ្នក'
           value={name}
-          onChange={(event) => setName(event.currentTarget.value)}
-          mt="md"
-        />
+          onChange={(event) => setName(event.currentTarget.value)} />
 
         <TextInput
           rightSection={rightSection}
