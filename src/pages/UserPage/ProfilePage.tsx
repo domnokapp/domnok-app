@@ -37,6 +37,7 @@ export const ProfilePage: FC = () => {
           name='name'
           title='គោត្តនាមនិងនាម'
           placeholder='បញ្ចូលឈ្មោះពេញរបស់អ្នក'
+          style={{padding: 0, margin: 0}}
           value={name}
           onChange={(event) => setName(event.currentTarget.value)} />
 
