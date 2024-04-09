@@ -20,7 +20,6 @@ export const ProfilePage: FC = () => {
       padding: 0,
       margin: 0,
     }}>
-      <Typography.Title level={3}>Profile Page</Typography.Title>
         <Input header="Input" placeholder="I am usual input, just leave me alone" />
         <Input status="error" header="Input" placeholder="I am error input, don't make my mistakes..." />
         <Input status="focused" header="Input" placeholder="I am focused input, are u focused on me?" />
