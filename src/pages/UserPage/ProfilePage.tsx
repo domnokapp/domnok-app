@@ -32,6 +32,8 @@ export const ProfilePage: FC = () => {
     <>
           <List style={{
       background: 'var(--tgui--secondary_bg_color)',
+      padding: 0,
+      marginTop: 0,
     }}>
       <Typography.Title level={3}>Profile Page</Typography.Title>
         <Input header="Input" placeholder="I am usual input, just leave me alone" />
