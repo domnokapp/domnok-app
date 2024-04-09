@@ -1,3 +1,7 @@
+import '@xelene/tgui/dist/styles.css';
+import '@mantine/core/styles/Input.css';
+import '@mantine/core/styles/Card.css';
+import '@mantine/core/styles/Card.css';
 import { setDebug, ClosingBehavior, MiniApp, postEvent, SettingsButton } from '@tma.js/sdk';
 import { DisplayGate, SDKProvider } from '@tma.js/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';

@@ -1,6 +1,6 @@
 import './IndexPage.css';
 import axios from "axios";
-import { useMemo, type FC, useEffect, useContext, useState } from 'react';
+import { useMemo, type FC, useEffect, useState } from 'react';
 import { Page } from "../../components/Page";
 import { ActionsGrid } from '../../components/Cards/ActionsGrid.tsx';
 import { User } from '@tma.js/sdk';
@@ -10,21 +10,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BannerInformationCard } from '../../components/Cards/BannerInformationCard.tsx';
 import { apiRoutes } from '../../api/apiRoutes.tsx';
 import { BASE_URL } from '../../constants/constant.tsx';
-import { AuthContext } from '../../context/AuthContext.tsx';
-
-type UserProps = {
-  id: number;
-  name: string;
-  email?: string;
-  team_id: number;
-  created_at: string;
-  updated_at: string;
-};
-
-type ResponseProps = {
-  access_token: string;
-  user: UserProps;
-};
 
 async function connectAPI(params: any) {
   const connect = await axios.post(
