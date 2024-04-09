@@ -1,3 +1,5 @@
+// core styles are required for all packages
+import '@mantine/core/styles.css';
 import '@xelene/tgui/dist/styles.css';
 import '@mantine/core/styles/Input.css';
 import '@mantine/core/styles/Card.css';
