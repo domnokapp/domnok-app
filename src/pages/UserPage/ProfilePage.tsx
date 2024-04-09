@@ -30,8 +30,15 @@ export const ProfilePage: FC = () => {
 
   return (
     <>
-        <Typography.Title level={3}>Profile Page</Typography.Title>
-    
+          <List style={{
+      background: 'var(--tgui--secondary_bg_color)',
+    }}>
+      <Typography.Title level={3}>Profile Page</Typography.Title>
+        <Input header="Input" placeholder="I am usual input, just leave me alone" />
+        <Input status="error" header="Input" placeholder="I am error input, don't make my mistakes..." />
+        <Input status="focused" header="Input" placeholder="I am focused input, are u focused on me?" />
+        <Input disabled header="Input" placeholder="I am disabled input" />
+
         <Input 
           header='គោត្តនាមនិងនាម'
           placeholder='បញ្ចូលឈ្មោះពេញរបស់អ្នក'
@@ -40,16 +47,8 @@ export const ProfilePage: FC = () => {
           after={<Tappable Component="div" style={{display: 'flex'}} onClick={() => setName('')}>
             <IconX style={{width: rem(15), height: rem(15)}} />
           </Tappable>} />
-
-        <TextInput
-          rightSection={rightSection}
-          color={theme.colors['cyan'][6]}
-          label="គោត្តនាមនិងនាម"
-          placeholder="បញ្ចូលឈ្មោះពេញរបស់អ្នក"
-          value={name}
-          onChange={(event) => setCategoryId(event.currentTarget.value)}
-          mt="md"
-        />
+      </List>;
+        
     </>
   );
 };
