@@ -19,8 +19,9 @@ function ProductItem() {
                         <Image
                             src={item.image}
                             height={120}
+                            w="auto"
                             alt={item.name}
-                            mod={`fit`}
+                            fit="contain"
                         />
                     </Card.Section>
             
