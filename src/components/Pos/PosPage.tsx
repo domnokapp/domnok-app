@@ -1,9 +1,10 @@
-import { Button, Text, Group, Alert, Image, Card, Badge, ScrollArea } from '@mantine/core';
+import { Button, Text, Group, Alert, Image, Card, Badge, ScrollArea, Grid } from '@mantine/core';
 import { IconBuildingStore } from '@tabler/icons-react';
 import { Link } from '../Link';
 
 function ProductItem() {
     return (
+        <Grid.Col span={6}>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Card.Section>
           <Image
@@ -27,13 +28,16 @@ function ProductItem() {
           Book classic tour now
         </Button>
       </Card>
+      </Grid>
     );
   }
 
 export function PosPage() {
     return (
         <ScrollArea>
-            <ProductItem />
+            <Grid>
+                <ProductItem />
+            </Grid>
         </ScrollArea>
     );
 }
