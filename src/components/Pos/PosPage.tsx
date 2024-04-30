@@ -15,7 +15,11 @@ function ProductItem() {
         { items.map((item) => (
             <Grid.Col span={6} key={item.id}>
                 <Card shadow="sm" padding="lg" radius="md" withBorder>
-                    <Card.Section>
+                    <Card.Section style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
                         <Image
                             src={item.image}
                             height={120}
