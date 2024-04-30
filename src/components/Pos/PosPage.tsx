@@ -3,9 +3,10 @@ import { IconBuildingStore } from '@tabler/icons-react';
 import { Link } from '../Link';
 
 const items = [
-    { id: 1, name: 'Apple', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' },
-    { id: 2, name: 'Banana', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' },
-    { id: 3, name: 'Manger', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' }
+    { id: 1, name: 'មេជីធម្មជាតិ OF អរម៉ូន', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' },
+    { id: 2, name: 'EM ទឹកអង្ករ', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' },
+    { id: 3, name: 'ប្រេងលាបសក់', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' },
+    { id: 3, name: 'មេជីគោក OF ថនិកសត្វ', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' }
 ];
 
 function ProductItem() {
@@ -17,8 +18,8 @@ function ProductItem() {
                     <Card.Section>
                         <Image
                             src={item.image}
-                            height={80}
-                            alt="Norway"
+                            height={120}
+                            alt={item.name}
                         />
                     </Card.Section>
             
