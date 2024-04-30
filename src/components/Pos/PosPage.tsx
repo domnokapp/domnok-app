@@ -16,6 +16,7 @@ function ProductItem() {
             <Grid.Col span={6} key={item.id}>
                 <Card shadow="sm" padding="lg" radius="md" withBorder>
                     <Card.Section style={{
+                        padding: 5,
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
