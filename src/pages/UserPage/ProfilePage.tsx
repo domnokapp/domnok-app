@@ -1,17 +1,13 @@
 import '@xelene/tgui/dist/styles.css';
 import '@mantine/core/styles/Input.css';
 import type { FC } from 'react';
-import { Typography } from 'antd';
 import { useState } from 'react';
-import { TextInput, Tooltip, Center, Text, rem, useMantineTheme } from '@mantine/core';
-import { Page } from '../../components/Page';
-import { IconClearAll, IconInfoCircle, IconX } from '@tabler/icons-react';
+import { rem } from '@mantine/core';
+import { IconX } from '@tabler/icons-react';
 import { Input, List, Tappable } from '@xelene/tgui';
 
 export const ProfilePage: FC = () => {
-  const theme = useMantineTheme();
   const [name, setName] = useState('');
-  const [categoryId, setCategoryId] = useState('');
 
   return (
     <>

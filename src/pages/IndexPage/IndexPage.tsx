@@ -10,6 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BannerInformationCard } from '../../components/Cards/BannerInformationCard.tsx';
 import { apiRoutes } from '../../api/apiRoutes.tsx';
 import { BASE_URL } from '../../constants/constant.tsx';
+import { PosPage } from '../../components/Pos/PosPage.tsx';
 
 async function connectAPI(params: any) {
   const connect = await axios.post(
@@ -92,6 +93,7 @@ export const IndexPage: FC = () => {
               />
               <SetupTeam />
               <ActionsGrid />
+              <PosPage />
             </>
           ) 
           : <i>Application was launched with missing init data</i> }
