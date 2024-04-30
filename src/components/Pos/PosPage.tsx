@@ -20,6 +20,7 @@ function ProductItem() {
                             src={item.image}
                             height={120}
                             alt={item.name}
+                            mod={`fit`}
                         />
                     </Card.Section>
             
