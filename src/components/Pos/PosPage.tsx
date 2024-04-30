@@ -6,13 +6,12 @@ const items = [
     { id: 1, name: 'Apple', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' },
     { id: 2, name: 'Banana', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' },
     { id: 3, name: 'Manger', price: '$ 12.55', image: 'https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png' }
-
 ];
 
-function ProductItem(items: any) {
+function ProductItem() {
     return (
         <>
-        { items.map((item: any) => (
+        { items.map((item) => (
             <Grid.Col span={6} key={item.id}>
                 <Card shadow="sm" padding="lg" radius="md" withBorder>
                     <Card.Section>
@@ -32,13 +31,13 @@ function ProductItem(items: any) {
         )) }
         </>
     );
-  }
+}
 
 export function PosPage() {
     return (
         <ScrollArea>
             <Grid>
-                <ProductItem items={items} />
+                <ProductItem />
             </Grid>
         </ScrollArea>
     );
