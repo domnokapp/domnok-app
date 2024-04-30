@@ -28,7 +28,7 @@ function ProductItem() {
           Book classic tour now
         </Button>
       </Card>
-      </Grid>
+      </Grid.Col>
     );
   }
 
