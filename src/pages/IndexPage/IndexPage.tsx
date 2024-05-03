@@ -114,6 +114,7 @@ export const IndexPage: FC = () => {
     }, []);
 
   console.log("Products", products);
+  console.log("User", apiUser);
 
   if(isFetching || apiUser == undefined) {
     return (
