@@ -113,9 +113,8 @@ export const IndexPage: FC = () => {
         });
     }, []);
 
-  console.log("Products", products);
-  console.log("User", apiUser);
-  console.log("accessToken", accessToken);
+  console.log('isFetching', isFetching);
+  console.log('accessToken', accessToken);
 
   if(isFetching || accessToken == undefined) {
     return (
