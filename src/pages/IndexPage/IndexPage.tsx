@@ -11,6 +11,8 @@ import { BannerInformationCard } from '../../components/Cards/BannerInformationC
 import { apiRoutes } from '../../api/apiRoutes.tsx';
 import { BASE_URL } from '../../constants/constant.tsx';
 import { PosPage } from '../../components/Pos/PosPage.tsx';
+import { useProductQuery } from '../../api/hooks/useProductQuery.tsx';
+import { useInfiniteQuery } from '@tanstack/react-query';
 
 async function connectAPI(params: any) {
   const connect = await axios.post(
@@ -33,6 +35,7 @@ export const IndexPage: FC = () => {
     const initData = useInitData();
     const [accessToken, setAccessToken] = useState('');
     const [id, setId] = useState<number|undefined>();
+    const [teamId, setTeamId] = useState<number>(0);
     const [code, setCode] = useState('');
     const [name, setName] = useState('');
     const [teamName, setTeamName] = useState('');
@@ -64,7 +67,36 @@ export const IndexPage: FC = () => {
       setName(res.user.name);
       setCode(res.user.code);
       setId(res.user.id);
+      setTeamId(res.user.team_id);
     });
+
+    const fetchProducts = async ({ pageParam }: { pageParam: number }) => {
+      return await useProductQuery({ accessToken, teamId, pageParam });
+    };
+  
+    /**
+     * Fetch products
+     */
+    const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } =
+      useInfiniteQuery({
+        queryKey: ['query-products'],
+        queryFn: fetchProducts,
+        initialPageParam: 1,
+        getNextPageParam: (lastPage, allPages) => {
+          const nextPage = allPages.length;
+  
+          if (allPages.length < lastPage?.meta?.last_page) return nextPage + 1;
+          else return undefined;
+        },
+      });
+  
+    /**
+     * Assign data to products
+     */
+    const products = data?.pages.map((product) => {
+      return product?.data;
+    }, []);
+
 
     useEffect(() => {
         /**
@@ -78,6 +110,8 @@ export const IndexPage: FC = () => {
           tg_connect_id: userObj?.id,
         });
     }, []);
+
+  console.log("Products", products);
 
   return (
     <Page title="Dashboard">
@@ -93,7 +127,7 @@ export const IndexPage: FC = () => {
               />
               <SetupTeam />
               <ActionsGrid />
-              <PosPage />
+              <PosPage products={products} />
             </>
           ) 
           : <i>Application was launched with missing init data</i> }

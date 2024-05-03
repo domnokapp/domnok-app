@@ -24,4 +24,4 @@ export type UserProps = {
 export type AuthProviderProps = {
     accessToken?: string;
     user: UserProps;
-  }
+}

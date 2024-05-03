@@ -1,6 +1,4 @@
-import { Button, Text, Group, Alert, Image, Card, Badge, ScrollArea, Grid } from '@mantine/core';
-import { IconBuildingStore } from '@tabler/icons-react';
-import { Link } from '../Link';
+import { Text, Group, Image, Card, Badge, ScrollArea, Grid } from '@mantine/core';
 
 const items = [
     { id: 1, name: 'មេជីធម្មជាតិ OF អរម៉ូន', price: '$ 12.55', image: 'https://assets.myntassets.com/dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/24014310/2023/7/14/e0d643e5-05bc-4249-833b-0ddf80440f851689274793057BULLMERMenBeigePrintedV-NeckPocketsT-shirt1.jpg' },
@@ -9,7 +7,7 @@ const items = [
     { id: 3, name: 'មេជីគោក OF ថនិកសត្វ', price: '$ 12.55', image: 'https://pbx2-pbww-prod-pbww-cdn.getprintbox.com/media/productimage/fe050866-8169-4645-ad76-10437425291c/Blank%20T-Shirt_thumb_300x300?mt=1588770269.372995' }
 ];
 
-function ProductItem() {
+function ProductItem(products: any) {
     return (
         <>
         { items.map((item) => (
@@ -41,11 +39,12 @@ function ProductItem() {
     );
 }
 
-export function PosPage() {
+export function PosPage({products}: any) {
+
     return (
         <ScrollArea>
             <Grid>
-                <ProductItem />
+                <ProductItem products={products} />
             </Grid>
         </ScrollArea>
     );
