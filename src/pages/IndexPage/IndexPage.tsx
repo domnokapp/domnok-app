@@ -79,18 +79,33 @@ export const IndexPage: FC = () => {
     /**
      * Fetch products
      */
-    const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } =
-      useInfiniteQuery({
+    // const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } =
+    //   useInfiniteQuery({
+    //     queryKey: ['query-products'],
+    //     queryFn: fetchProducts,
+    //     initialPageParam: 1,
+    //     getNextPageParam: (lastPage, allPages) => {
+    //       const nextPage = allPages.length;
+  
+    //       if (allPages.length < lastPage?.meta?.last_page) return nextPage + 1;
+    //       else return undefined;
+    //     },
+    //     staleTime: 0,
+    //   });
+    const { data, error, fetchNextPage, hasNextPage, isFetching, isFetchingNextPage, status } = useMemo(() => {
+      return useInfiniteQuery({
         queryKey: ['query-products'],
         queryFn: fetchProducts,
         initialPageParam: 1,
         getNextPageParam: (lastPage, allPages) => {
           const nextPage = allPages.length;
-  
+
           if (allPages.length < lastPage?.meta?.last_page) return nextPage + 1;
           else return undefined;
         },
+        staleTime: Infinity,
       });
+    });
   
     /**
      * Assign data to products
@@ -112,11 +127,10 @@ export const IndexPage: FC = () => {
           tg_connect_id: userObj?.id,
         });
     }, []);
-
   console.log('isFetching', isFetching);
   console.log('accessToken', accessToken);
 
-  if(isFetching || accessToken == undefined) {
+  if(isFetching) {
     return (
       <>
         <Center>
