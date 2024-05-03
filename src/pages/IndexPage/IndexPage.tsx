@@ -115,8 +115,9 @@ export const IndexPage: FC = () => {
 
   console.log("Products", products);
   console.log("User", apiUser);
+  console.log("accessToken", accessToken);
 
-  if(isFetching || apiUser == undefined) {
+  if(isFetching || accessToken == undefined) {
     return (
       <>
         <Center>
