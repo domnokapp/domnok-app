@@ -13,7 +13,6 @@ import { BASE_URL } from '../../constants/constant.tsx';
 import { PosPage } from '../../components/Pos/PosPage.tsx';
 import { useProductQuery } from '../../api/hooks/useProductQuery.tsx';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { CircularProgress } from '@mui/material';
 import { Spinner } from '@xelene/tgui';
 import { Center } from '@mantine/core';
 
@@ -116,7 +115,7 @@ export const IndexPage: FC = () => {
 
   console.log("Products", products);
 
-  if(isFetching) {
+  if(isFetching || apiUser == undefined) {
     return (
       <>
         <Center>
