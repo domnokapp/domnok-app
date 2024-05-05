@@ -3,15 +3,15 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://telegram-mini-apps.github.io/reactjs-js-template",
+  "homepage": "https://domnokapp.github.io/",
   "scripts": {
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
-    "preview": "vite preview",
-    "predeploy": "pnpm run build"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.6",

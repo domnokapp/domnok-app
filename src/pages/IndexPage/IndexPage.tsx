@@ -87,7 +87,7 @@ export const IndexPage: FC = () => {
     //     getNextPageParam: (lastPage, allPages) => {
     //       const nextPage = allPages.length;
   
-    //       if (allPages.length < lastPage?.meta?.last_page) return nextPage + 1;
+    //       if (allPages.length < lastPage?.meta?.last_page) xreturn nextPage + 1;
     //       else return undefined;
     //     },
     //     staleTime: 0,
@@ -152,8 +152,6 @@ export const IndexPage: FC = () => {
                 teamName={teamName}
                 photoUrl=""
               />
-              <SetupTeam />
-              <ActionsGrid />
               <PosPage products={products} />
             </>
           ) 
