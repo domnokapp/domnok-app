@@ -4,7 +4,7 @@ import { useMemo, type FC, useEffect, useState } from 'react';
 import { Page } from "../../components/Page";
 import { ActionsGrid } from '../../components/Cards/ActionsGrid.tsx';
 import { User, QRScanner, postEvent } from '@tma.js/sdk';
-import { useInitData, useMiniApp } from '@tma.js/sdk-react';
+import { useInitData, useMiniApp, useMainButton } from '@tma.js/sdk-react';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BannerInformationCard } from '../../components/Cards/BannerInformationCard.tsx';
@@ -37,6 +37,7 @@ async function connectAPI(params: any) {
 
 export const IndexPage: FC = () => {
     const miniApp = useMiniApp();
+    const mainButton = useMainButton();
     const initData = useInitData();
     const [accessToken, setAccessToken] = useState('');
     const [id, setId] = useState<number|undefined>();
@@ -129,6 +130,11 @@ export const IndexPage: FC = () => {
           email: null,
           phone: null,
           tg_connect_id: userObj?.id,
+        });
+
+        mainButton.setParams({
+          text: 'Submit',
+          textColor: '#aabb01'
         });
     }, []);
   console.log('isFetching', isFetching);
