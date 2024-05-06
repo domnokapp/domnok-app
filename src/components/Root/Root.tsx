@@ -9,6 +9,8 @@ import { DisplayGate, SDKProvider } from '@tma.js/sdk-react';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { type FC } from 'react';
 import { useEffect, useMemo } from 'react';
+import { AppShell, Burger, Group, Skeleton } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   QueryClient,
@@ -37,6 +39,9 @@ const Loading: FC = () => {
 };
 
 export const Root: FC = () => {
+
+  const [opened, { toggle }] = useDisclosure();
+  
   const manifestUrl = useMemo(() => {
     return new URL('tonconnect-manifest.json', window.location.href).toString();
   }, []);
@@ -68,7 +73,28 @@ export const Root: FC = () => {
       >
         <DisplayGate error={Err} loading={Loading} initial={Loading}>
           <QueryClientProvider client={queryClient}>
-            <App />
+            <AppShell
+              header={{ height: 60 }}
+              navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: !opened } }}
+              padding="md"
+            >
+              <AppShell.Header>
+                <Group h="100%" px="md">
+                  <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+                </Group>
+              </AppShell.Header>
+              <AppShell.Navbar p="md">
+                Navbar
+                {Array(15)
+                  .fill(0)
+                  .map((_, index) => (
+                    <Skeleton key={index} h={28} mt="sm" animate={false} />
+                  ))}
+              </AppShell.Navbar>
+              <AppShell.Main>
+                <App />
+              </AppShell.Main>
+            </AppShell>
           </QueryClientProvider>
         </DisplayGate>
       </SDKProvider>
