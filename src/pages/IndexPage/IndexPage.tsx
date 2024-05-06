@@ -4,7 +4,7 @@ import { useMemo, type FC, useEffect, useState } from 'react';
 import { Page } from "../../components/Page";
 import { ActionsGrid } from '../../components/Cards/ActionsGrid.tsx';
 import { User, QRScanner, postEvent } from '@tma.js/sdk';
-import { useInitData } from '@tma.js/sdk-react';
+import { useInitData, useMiniApp } from '@tma.js/sdk-react';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { BannerInformationCard } from '../../components/Cards/BannerInformationCard.tsx';
@@ -36,6 +36,7 @@ async function connectAPI(params: any) {
 }
 
 export const IndexPage: FC = () => {
+    const miniApp = useMiniApp();
     const initData = useInitData();
     const [accessToken, setAccessToken] = useState('');
     const [id, setId] = useState<number|undefined>();
@@ -118,6 +119,7 @@ export const IndexPage: FC = () => {
 
 
     useEffect(() => {
+      miniApp.ready();
         /**
          * Runnign to connect ID 
          * and just first time
