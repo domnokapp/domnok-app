@@ -14,9 +14,8 @@ function ProductItem(products: any) {
         <>
         { items.map((item) => (
             <Grid.Col span={4} key={item.id}>
-                <Card shadow="sm" padding="lg" radius="md" withBorder>
+                <Card shadow="sm" padding="md" radius="md" withBorder>
                     <Card.Section style={{
-                        padding: 5,
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
@@ -31,10 +30,9 @@ function ProductItem(products: any) {
                         />
                     </Card.Section>
             
-                    <Group justify="space-between" mt="md" mb="xs">
+                    <Group justify="space-between" mt="xs" mb="xs">
                         <Text fw={500} lineClamp={2}>{item.name}</Text>
                         <Text fw={500} lineClamp={1}>{item.barcode}</Text>
-                        
                     </Group>
                 </Card>
             </Grid.Col>
