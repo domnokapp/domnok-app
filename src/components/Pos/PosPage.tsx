@@ -21,6 +21,7 @@ function ProductItem(products: any) {
                         justifyContent: 'center',
                         alignItems: 'center',
                     }}>
+                        <Badge color="pink">{item.price}</Badge>
                         <Image
                             src={item.image}
                             height={120}
@@ -33,7 +34,7 @@ function ProductItem(products: any) {
                     <Group justify="space-between" mt="md" mb="xs">
                         <Text fw={500} lineClamp={2}>{item.name}</Text>
                         <Text fw={500} lineClamp={1}>{item.barcode}</Text>
-                        <Badge color="pink">{item.price}</Badge>
+                        
                     </Group>
                 </Card>
             </Grid.Col>
