@@ -3,7 +3,7 @@ import axios from "axios";
 import { useMemo, type FC, useEffect, useState } from 'react';
 import { Page } from "../../components/Page";
 import { ActionsGrid } from '../../components/Cards/ActionsGrid.tsx';
-import { User } from '@tma.js/sdk';
+import { User, QRScanner, postEvent } from '@tma.js/sdk';
 import { useInitData } from '@tma.js/sdk-react';
 import { SetupTeam } from '../../components/Cards/SetupTeam.tsx';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -14,7 +14,9 @@ import { PosPage } from '../../components/Pos/PosPage.tsx';
 import { useProductQuery } from '../../api/hooks/useProductQuery.tsx';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { Spinner } from '@xelene/tgui';
-import { Center } from '@mantine/core';
+import { Center, Group, rem } from '@mantine/core';
+import { IconScan, IconSettings } from '@tabler/icons-react';
+const scanner = new QRScanner('6.3', postEvent);
 
 async function connectAPI(params: any) {
   const connect = await axios.post(
@@ -152,6 +154,18 @@ export const IndexPage: FC = () => {
                 teamName={teamName}
                 photoUrl=""
               />
+              <Group justify="space-between" mt="xs" mb="xs">
+                {/* Left */}
+                <IconSettings style={{width: rem(20), height: rem(20)}} stroke={1.5} />
+                
+                {/* Right */}
+                <IconScan style={{width: rem(20), height: rem(20)}} stroke={1.5} onClick={() => {
+                  scanner.open('Scan the barcode').then((content) => {
+                    console.log(content);
+                    // Output: 'some-data=22l&app=93...'
+                  });
+                }} />
+              </Group>
               <PosPage products={products} />
             </>
           ) 
