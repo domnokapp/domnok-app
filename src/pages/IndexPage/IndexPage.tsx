@@ -14,7 +14,7 @@ import { PosPage } from '../../components/Pos/PosPage.tsx';
 import { useProductQuery } from '../../api/hooks/useProductQuery.tsx';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { Spinner } from '@xelene/tgui';
-import { Center, Group, rem } from '@mantine/core';
+import { Center, Group, ScrollArea, rem } from '@mantine/core';
 import { IconScan, IconSettings } from '@tabler/icons-react';
 const scanner = new QRScanner('6.3', postEvent);
 
@@ -151,33 +151,35 @@ export const IndexPage: FC = () => {
   }
 
   return (
-    <Page title="Dashboard">
-      { apiUser != undefined
-          ? (
-            <>
-              <BannerInformationCard
-                id={id}
-                code={code}
-                name={name}
-                teamName={teamName}
-                photoUrl=""
-              />
-              <Group justify="space-between" mt="xs" mb="xs">
-                {/* Left */}
-                <IconSettings style={{width: rem(20), height: rem(20)}} stroke={1.5} />
-                
-                {/* Right */}
-                <IconScan style={{width: rem(20), height: rem(20)}} stroke={1.5} onClick={() => {
-                  scanner.open('Scan the barcode').then((content) => {
-                    console.log(content);
-                    // Output: 'some-data=22l&app=93...'
-                  });
-                }} />
-              </Group>
-              <PosPage products={products} />
-            </>
-          ) 
-          : <i>Application was launched with missing init data</i> }
-    </Page>
+    <ScrollArea onKeyDown={() => console.log("Hello Down")} onScroll={() => console.log("Scrolling...")}>
+      <Page title="Dashboard">
+        { apiUser != undefined
+            ? (
+              <>
+                <BannerInformationCard
+                  id={id}
+                  code={code}
+                  name={name}
+                  teamName={teamName}
+                  photoUrl=""
+                />
+                <Group justify="space-between" mt="xs" mb="xs">
+                  {/* Left */}
+                  <IconSettings style={{width: rem(20), height: rem(20)}} stroke={1.5} />
+                  
+                  {/* Right */}
+                  <IconScan style={{width: rem(20), height: rem(20)}} stroke={1.5} onClick={() => {
+                    scanner.open('Scan the barcode').then((content) => {
+                      console.log(content);
+                      // Output: 'some-data=22l&app=93...'
+                    });
+                  }} />
+                </Group>
+                <PosPage products={products} />
+              </>
+            ) 
+            : <i>Application was launched with missing init data</i> }
+      </Page>
+    </ScrollArea>
   );
 };
